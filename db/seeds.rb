@@ -1,10 +1,10 @@
 puts "Destroy previous Kitas"
-Kita.destroy_all
+Kindergarden.destroy_all
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Kitas = [{name: "Sunshine Kita", address: "Leopoldstraße 50, Berlin", language: "English-German", capacity: 200},
+kindergardens = [{name: "Sunshine Kita", address: "Leopoldstraße 50, Berlin", language: "English-German", capacity: 200},
           {name: "Meine Erste Kita", address: "Brandenburgische Straße 22, Berlin", language: "English-German", capacity: 84},
           {name: "Charlotte", address: "Genslerstraße 21, Berlin", language: "German", capacity: 120},
           {name: "Tutti Amici", address: "Leopoldßtraße 82, Berlin", language: "Italian-German", capacity: 64},
