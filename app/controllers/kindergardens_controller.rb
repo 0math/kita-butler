@@ -2,7 +2,7 @@ class KindergardensController < ApplicationController
   before_action :set_kindergarden, only: [:show]
 
   def index
-    # @pets = policy_scope(Pet).geocoded #returns pets with coordinates
+    # @kindergardens = policy_scope(Kindergarden).geocoded #returns kindergaardens with coordinates
     if params[:query].present?
       sql_query = "name ILIKE :query or address ILIKE :address or language ILIKE :language"
       @kindergardens = @kindergardens.where(sql_query, query: "%#{params[:query]}%")
