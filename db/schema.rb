@@ -10,13 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
-ActiveRecord::Schema.define(version: 2019_11_25_172324) do
-
+ActiveRecord::Schema.define(version: 2019_11_26_110328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favourites", force: :cascade do |t|
+    t.bigint "kid_id"
+    t.bigint "kindergarden_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["kid_id"], name: "index_favourites_on_kid_id"
+    t.index ["kindergarden_id"], name: "index_favourites_on_kindergarden_id"
+  end
 
   create_table "kids", force: :cascade do |t|
     t.string "first_name"
@@ -38,6 +44,8 @@ ActiveRecord::Schema.define(version: 2019_11_25_172324) do
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "phone"
+    t.string "email"
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -59,7 +67,6 @@ ActiveRecord::Schema.define(version: 2019_11_25_172324) do
     t.index ["reservation_id"], name: "index_reviews_on_reservation_id"
   end
 
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -73,10 +80,10 @@ ActiveRecord::Schema.define(version: 2019_11_25_172324) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-
+  add_foreign_key "favourites", "kids"
+  add_foreign_key "favourites", "kindergardens"
   add_foreign_key "kids", "users"
   add_foreign_key "reservations", "kids"
   add_foreign_key "reservations", "kindergardens"
   add_foreign_key "reviews", "reservations"
-
 end
