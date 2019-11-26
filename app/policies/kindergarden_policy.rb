@@ -4,6 +4,7 @@ class KindergardenPolicy < ApplicationPolicy
       scope.all
     end
   end
+
   def show?
     true
   end

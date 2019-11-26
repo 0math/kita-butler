@@ -2,6 +2,7 @@ class KindergardensController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_kindergarden, only: [:show]
 
+
   def index
     @kindergardens = policy_scope(Kindergarden)
     if params[:query].present?
@@ -17,6 +18,7 @@ class KindergardensController < ApplicationController
 
   def show
   end
+
 
   private
 
