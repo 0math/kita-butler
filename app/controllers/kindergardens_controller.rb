@@ -4,7 +4,7 @@ class KindergardensController < ApplicationController
 
 
   def index
-    @kindergardens = policy_scope(Kindergarden)
+    @kindergardens = policy_scope(Kindergarden).geocoded
     if params[:query].present?
      sql_query = "name ILIKE :query or address ILIKE :query or language ILIKE :query"
      @kindergardens = @kindergardens.where(sql_query, query: "%#{params[:query]}%")
@@ -16,7 +16,15 @@ class KindergardensController < ApplicationController
     end
   end
 
+   @markers = @kindergardens.map do |kindergarden|
+      {
+        lat: kindergarden.latitude,
+        lng: kindergarden.longitude
+      }
+    end
+
   def show
+      @markers = [{lat: @kindergarden.latitude, lng: @kindergarden.longitude}]
   end
 
 
