@@ -1,1 +1,36 @@
-<h1>Yo</h1>
+<div class="container">
+
+  <h1>Kindergardens I applied to</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Kita</th>
+        <th>Status</th>
+        <th>Created at</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @kids.each do |kid| %>
+      <tr>
+        <td>
+          <% kid.reservations.each do |reservation| %>
+          <%= reservation.kindergarden.name %>
+          <% end %>
+        </td>
+        <td>
+          <% kid.reservations.each do |reservation| %>
+          <%= reservation.status %>
+          <% end %>
+        </td>
+        <td>
+          <% kid.reservations.each do |reservation| %>
+          <%= reservation.created_at %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
