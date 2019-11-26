@@ -25,6 +25,10 @@ class KindergardensController < ApplicationController
 
   private
 
+  def kindergarden_params
+    params.require(:kindergarden).permit(:name, :address, :language, :capacity)
+  end
+
   def set_kindergarden
     @pet = Kindergarden.find(params[:id])
   end
