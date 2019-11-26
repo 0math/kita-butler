@@ -1,6 +1,7 @@
 class KindergardensController < ApplicationController
 
   before_action :set_kindergarden, only: [:show]
+  skip_before_action :authenticate_user!, only: [:show]
 
   def index
     @kindergardens = policy_scope(Kindergarden)
@@ -10,18 +11,13 @@ class KindergardensController < ApplicationController
       if @kindergardens.exists?
         return @kindergardens
       else
-        redirect_to root_path(message: "Sorry not KiTa matches your seach")
+        redirect_to root_path(message: "Sorry no KiTa matches your search")
       end
     end
   end
 
   def show
-    authorize @kindergarden
   end
-
-
-
-
 
   private
 
@@ -30,6 +26,7 @@ class KindergardensController < ApplicationController
   end
 
   def set_kindergarden
-    @pet = Kindergarden.find(params[:id])
+    @kindergarden = Kindergarden.find(params[:id])
+    authorize @kindergarden
   end
 end
