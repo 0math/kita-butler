@@ -4,7 +4,7 @@ Kindergarden.destroy_all
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-kindergardens = [{name: "Sunshine Kita", address: "Leopoldstraße 50, Berlin", language: "English-German", capacity: 200},
+kindergardens = Kindergarden.create([{name: "Sunshine Kita", address: "Leopoldstraße 50, Berlin", language: "English-German", capacity: 200},
           {name: "Meine Erste Kita", address: "Brandenburgische Straße 22, Berlin", language: "English-German", capacity: 84},
           {name: "Charlotte", address: "Genslerstraße 21, Berlin", language: "German", capacity: 120},
           {name: "Tutti Amici", address: "Leopoldßtraße 82, Berlin", language: "Italian-German", capacity: 64},
@@ -14,3 +14,4 @@ kindergardens = [{name: "Sunshine Kita", address: "Leopoldstraße 50, Berlin", l
           {name: "Boldog Gyerekek Kita", address: "Lichtenberger Straße, Berlin", language: "Hungarian-German", capacity: 46},
           {name: "Happikizzu", address: "Jacobystraße 5-6, Berlin", language: "Japanese-German", capacity: 38},
           {name: "Szczescie", address: "Bornholmer Straße 2, Berlin", language: "Polish-German", capacity: 52}]
+    )
