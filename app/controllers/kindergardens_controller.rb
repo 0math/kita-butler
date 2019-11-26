@@ -1,5 +1,5 @@
 class KindergardensController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:index]
   before_action :set_kindergarden, only: [:show]
 
   def index
