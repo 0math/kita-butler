@@ -3,9 +3,9 @@ class KindergardensController < ApplicationController
   before_action :set_kindergarden, only: [:show]
 
   def index
-    # @kindergardens = policy_scope(Kindergarden).geocoded #returns kindergaardens with coordinates
+    @kindergardens = policy_scope(Kindergarden)
     if params[:query].present?
-      sql_query = "name ILIKE :query or address ILIKE :address or language ILIKE :language"
+      sql_query = "name ILIKE :query or address ILIKE :query or language ILIKE :query"
       @kindergardens = @kindergardens.where(sql_query, query: "%#{params[:query]}%")
       if @kindergardens.exists?
         return @kindergardens
@@ -15,12 +15,23 @@ class KindergardensController < ApplicationController
     end
   end
 
-  def show
+  def new
+    @kindergarden = current_user.kindergardens.new
     authorize @kindergarden
-    # @reservation = Reservation.new
-    # @review = Review.new
-    # @condition = (Reservation.where("kindergarden_id = ? AND user_id = ?", params[:id], current_user.id).count > 0)
-    # @markers = [{lat: @pet.latitude, lng: @pet.longitude}]
+  end
+
+  def create
+    @kindergarden = current_user.kindergardens.new(kindergarden_params)
+    authorize @kindergarden
+    if @kindergarden.save
+      redirect_to pet_path(@kindergarden)
+    else
+      render :new
+    end
+  end
+
+  def edit
+    authorize @kindergarden
   end
 
   private

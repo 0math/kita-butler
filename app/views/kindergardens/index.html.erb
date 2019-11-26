@@ -1,25 +1,10 @@
-<!-- index.html.erb -->
-<%#= render 'shared/navbar' %>
-<div class="banner" style="background-image: url(<%= image_path('bannerphoto-index.png') %>);">
-
-  <div class="container">
-    <div class="container-text">
-      <p>Choose the KiTa of your dreams!</p>
-    </div>
-  </div>
-</div>
-<div class="center-text">
-  <p>"KiTa Butler helped me find the perfect KiTa!" -a mom.</p>
-</div>
-
-
 <div class="container">
   <h1> Available KiTas </h1>
   <div class="row">
-    <% @kindergardens.each do |pet| %>
+    <% @kindergardens.each do |kindergarden| %>
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card">
-        <% if pet.photo.present? %>
+        <% if kindergarden.photo.present? %>
           <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path kindergarden.photo, height: 300, width: 400, crop: :fill %>')"></div>
             <div class="card-description">
               <h3><%= link_to kindergarden.name, kindergarden_path(kindergarden)%></h3>

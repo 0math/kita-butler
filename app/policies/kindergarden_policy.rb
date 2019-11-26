@@ -4,7 +4,4 @@ class KindergardenPolicy < ApplicationPolicy
       scope.all
     end
   end
-
-
-
 end

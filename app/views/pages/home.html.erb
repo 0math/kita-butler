@@ -1,20 +1,20 @@
-
-<!-- the list of pets  -->
 <div class="container">
-  <div class="row" id="cards-product">
-    <% @kindergardens.each do |pet| %>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card">
-          <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path kindergarden.photo, height: 300, width: 400, crop: :fill %>')"></div>
-            <div class="card-description">
-              <h3><%= link_to kindergarden.name, kindergarden_path(kindergarden)%></h3>
-              <h4><%= kindergarden.language %></h4>
-              <h4><%= kindergarden.address %></h4>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="container-text">
+    <%= form_tag kindergardens_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a KiTa pet by name, language, or address"
+        %>
+      <%= submit_tag "Search", class: "btn btn-primary", style:"margin-top:15px;" %>
+    <% end %>
   </div>
 </div>
+<% if params[:message].present? %>
+  <p><%= params[:message] %></p>
+<% end %>
+<div class="center-text">
+  <p>Rent the perfect KiTa for your kids.</p>
+</div>
+
 
