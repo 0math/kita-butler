@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
-  protected_from_surgery with: :exception
+  protect_from_forgery with: :exception
   before_action :authenticate_user!
-  before_action : configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
   include Pundit
 
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
