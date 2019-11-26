@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :kindergardens, only: [:index, :show]
   root to: 'pages#home'
   resources :kids do
     resources :reservations, only: [:new, :create]
