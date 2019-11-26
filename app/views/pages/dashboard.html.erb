@@ -2,31 +2,35 @@
 
   <h1>Kindergardens I applied to</h1>
 
-  <table>
+  <table style="width: 100%;">
     <thead>
       <tr>
-        <th>Kita</th>
-        <th>Status</th>
-        <th>Created at</th>
+        <th style="border: 1px solid #ddd; padding: 8px;">Kita</th>
+        <th style="border: 1px solid #ddd; padding: 8px;">Status</th>
+        <th style="border: 1px solid #ddd; padding: 8px;">First contacted</th>
+        <th style="border: 1px solid #ddd; padding: 8px;">Last contacted</th>
       </tr>
     </thead>
     <tbody>
       <% @kids.each do |kid| %>
       <tr>
-        <td>
+        <td style="border: 1px solid #ddd; padding: 8px;">
           <% kid.reservations.each do |reservation| %>
           <%= reservation.kindergarden.name %>
           <% end %>
         </td>
-        <td>
+        <td style="border: 1px solid #ddd; padding: 8px;">
           <% kid.reservations.each do |reservation| %>
           <%= reservation.status %>
           <% end %>
         </td>
-        <td>
+        <td style="border: 1px solid #ddd; padding: 8px;">
           <% kid.reservations.each do |reservation| %>
           <%= reservation.created_at %>
           <% end %>
+        </td>
+        <td style="border: 1px solid #ddd; padding: 8px;">
+          Date. <a href="#">Contact again</a>
         </td>
       </tr>
       <% end %>
