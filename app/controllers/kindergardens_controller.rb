@@ -1,4 +1,5 @@
 class KindergardensController < ApplicationController
+
   before_action :set_kindergarden, only: [:show]
 
   def index
@@ -27,5 +28,4 @@ class KindergardensController < ApplicationController
   def set_kindergarden
     @pet = Kindergarden.find(params[:id])
   end
-
 end
