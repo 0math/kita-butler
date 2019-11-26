@@ -1,3 +1,4 @@
+<div class="banner" style="background-image: url(<%= image_url('bannerphoto.jpg') %>);">
 <div class="container">
   <div class="container-text">
     <%= form_tag kindergardens_path, method: :get do %>
@@ -10,11 +11,12 @@
     <% end %>
   </div>
 </div>
+</div>
 <% if params[:message].present? %>
   <p><%= params[:message] %></p>
 <% end %>
 <div class="center-text">
-  <p>Rent the perfect KiTa for your kids.</p>
+  <p>Book a place in the perfect KiTa for your kids.</p>
 </div>
 
 
