@@ -3,8 +3,8 @@ class KindergardenPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+
+
+
   end
-
-
-
 end
