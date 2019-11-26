@@ -1,2 +1,22 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: url(<%= image_url('bannerphoto.jpg') %>);">
+<div class="container">
+  <div class="container-text">
+    <%= form_tag kindergardens_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a KiTa pet by name, language, or address"
+        %>
+      <%= submit_tag "Search", class: "btn btn-primary", style:"margin-top:15px;" %>
+    <% end %>
+  </div>
+</div>
+</div>
+<% if params[:message].present? %>
+  <p><%= params[:message] %></p>
+<% end %>
+<div class="center-text">
+  <p>Book a place in the perfect KiTa for your kids.</p>
+</div>
+
+
