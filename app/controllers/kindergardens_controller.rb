@@ -1,6 +1,7 @@
 class KindergardensController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_kindergarden, only: [:show]
+
 
   def index
     @kindergardens = policy_scope(Kindergarden)
@@ -15,6 +16,10 @@ class KindergardensController < ApplicationController
     end
   end
 
+  def show
+  end
+
+
   private
 
   def kindergarden_params
@@ -22,6 +27,7 @@ class KindergardensController < ApplicationController
   end
 
   def set_kindergarden
-    @pet = Kindergarden.find(params[:id])
+    @kindergarden = Kindergarden.find(params[:id])
+    authorize @kindergarden
   end
 end

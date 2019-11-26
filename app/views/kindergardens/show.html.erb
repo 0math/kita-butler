@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="shadow p-3 mb-5 bg-white rounded">
+    <p id="notice"><%= notice %></p>
+    <%= cl_image_tag "placeholder_1", height: 300, width: 400 if @kindergarden.photo.nil?%>
+    <%= cl_image_tag @kindergarden.photo, height: 300, width: 400 unless @kindergarden.photo.nil?%>
+    </p>
+      <p>
+       <strong>Name:</strong>
+       <%= @kindergarden.name %>
+      </p>
+      <p>
+        <strong>Address:</strong>
+        <%= @kindergarden.address %>
+      </p>
+      <p>
+       <strong>Language:</strong>
+       <%= @kindergarden.language %>
+      </p>
+      <p>
+       <strong>Capacity:</strong>
+       <%= @kindergarden.capacity %>
+      </p>
+      <p>
+       <strong>Phone:</strong>
+       <%= @kindergarden.phone %>
+      </p>
+      <p>
+       <strong>Email:</strong>
+       <%= @kindergarden.email %>
+      </p>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-sm-6">
+              <div style="display: inline-block;">
+               <p><%= link_to "Apply", kindergardens_path, class: "btn btn-primary" %></p>
+              </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
