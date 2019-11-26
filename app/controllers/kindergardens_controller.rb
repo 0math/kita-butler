@@ -15,6 +15,10 @@ class KindergardensController < ApplicationController
     end
   end
 
+  def show
+    authorize @kindergarden
+  end
+
 
 
 
