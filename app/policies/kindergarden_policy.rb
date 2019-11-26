@@ -5,8 +5,6 @@ class KindergardenPolicy < ApplicationPolicy
     end
   end
 
-def create?
-  true
-end
+
 
 end
