@@ -6,9 +6,9 @@ class KindergardensController < ApplicationController
   def index
     @kindergardens = policy_scope(Kindergarden)
     if params[:query].present?
-      sql_query = "name ILIKE :query or address ILIKE :query or language ILIKE :query"
-      @kindergardens = @kindergardens.where(sql_query, query: "%#{params[:query]}%")
-      if @kindergardens.exists?
+     sql_query = "name ILIKE :query or address ILIKE :query or language ILIKE :query"
+     @kindergardens = @kindergardens.where(sql_query, query: "%#{params[:query]}%")
+       if @kindergardens.exists?
         return @kindergardens
       else
         redirect_to root_path(message: "Sorry not KiTa matches your search")
