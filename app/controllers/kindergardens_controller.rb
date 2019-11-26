@@ -15,24 +15,9 @@ class KindergardensController < ApplicationController
     end
   end
 
-  def new
-    @kindergarden = current_user.kindergardens.new
-    authorize @kindergarden
-  end
 
-  def create
-    @kindergarden = current_user.kindergardens.new(kindergarden_params)
-    authorize @kindergarden
-    if @kindergarden.save
-      redirect_to pet_path(@kindergarden)
-    else
-      render :new
-    end
-  end
 
-  def edit
-    authorize @kindergarden
-  end
+
 
   private
 
