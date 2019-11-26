@@ -11,7 +11,7 @@ class KindergardensController < ApplicationController
        if @kindergardens.exists?
         return @kindergardens
       else
-        redirect_to root_path(message: "Sorry not KiTa matches your search")
+        redirect_to root_path(message: "Sorry no KiTa matches your search")
       end
     end
   end
