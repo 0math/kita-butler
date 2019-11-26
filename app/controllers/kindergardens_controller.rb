@@ -1,7 +1,7 @@
 class KindergardensController < ApplicationController
 
   before_action :set_kindergarden, only: [:show]
-  skip_before_action :set_kindergarden, only: [:show]
+  skip_before_action :authenticate_user!, only: [:show]
 
   def index
     @kindergardens = policy_scope(Kindergarden)
