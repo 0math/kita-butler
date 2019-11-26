@@ -1,0 +1,30 @@
+<div class="container">
+  <h1> Available KiTas </h1>
+  <div class="row">
+    <% @kindergardens.each do |kindergarden| %>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card">
+        <% if kindergarden.photo.present? %>
+          <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path kindergarden.photo, height: 300, width: 400, crop: :fill %>')"></div>
+            <div class="card-description">
+              <h3><%= link_to kindergarden.name, kindergarden_path(kindergarden)%></h3>
+              <h4><%= kindergarden.language %></h4>
+              <h4><%= kindergarden.address %></h4>
+            </div>
+          </div>
+          <% else %>
+            <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2))"></div>
+            <div class="card-description">
+              <h3><%= link_to kindergarden.name, kindergarden_path(kindergarden)%></h3>
+              <h4><%= kindergarden.language %></h4>
+              <h4><%= kindergarden.address %></h4>
+            </div>
+          </div>
+          <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
