@@ -2,6 +2,10 @@
   <div class="shadow p-3 mb-5 bg-white rounded">
     <div class="row">
      <div class="col-sm-12">
+      <!-- loading kid -->
+
+
+      <!-- loading kid -->
        <%= simple_form_for(@kid) do |f| %>
         <%= f.error_notification %>
         <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -18,6 +22,8 @@
            <%= f.input :first_name %>
            <%= f.input :last_name %>
            <%= f.input :date_of_birth %>
+           <%= f.input :gender, as: :radio_buttons,
+                        collection: ['Male', 'Female', 'Neutral'] %>
            <%= f.input :primary_language %>
            <%= f.input :secondary_language %>
            <%= f.hidden_field :kindergarden_id, value: @kindergarden.id %>
