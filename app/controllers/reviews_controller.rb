@@ -2,13 +2,13 @@ class ReviewsController < ApplicationController
 
   def create
     @kindergarden = Kindergarden.find(params[:kindergarden_id])
-    # authorize @kindergarden
+    athorize @kindergarden
     # where status = accepted ?
     @condition = Reservation.where("status = ?", 'accepted')
     if @condition
       @review = Review.new(review_params)
       @review.kindergarden = @kindergarden
-      # authorize @review
+      authorize @review
       if @review.save
         redirect_to kindergarden_path(@kindergarden)
       else

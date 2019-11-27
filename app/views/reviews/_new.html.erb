@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="shadow p-3 mb-5 bg-white rounded">
+    <div class="row">
+     <div class="col-sm-12">
+      <h3>Add a review</h3>
+        <%= simple_form_for [kindergarden, review] do |f| %>
+          <% if condition %>
+              <%= f.input :rating, collection: 1..5 %>
+              <%= f.input :content %>
+              <%= f.submit class: "btn btn-primary"%>
+          <% else %>
+              <%= f.input :rating, collection: 1..5, disabled: true %>
+              <%= f.input :content, disabled: true %>
+              <%= f.submit class: "btn btn-primary disabled"%>
+          <% end %>
+        <% end %>
+        <p>You have to be accepted to the Kindergarden to leave a review</p>
+      </div>
+    </div>
+  </div>
+</div>
+

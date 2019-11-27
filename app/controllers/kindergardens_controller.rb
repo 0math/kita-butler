@@ -17,6 +17,7 @@ class KindergardensController < ApplicationController
   end
 
   def show
+    @review = Review.new
   end
 
 
