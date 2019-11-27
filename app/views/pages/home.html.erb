@@ -1,22 +1,78 @@
-<div class="banner" style="background-image: url(<%= image_url('bannerphoto.jpg') %>);">
-<div class="container">
-  <div class="container-text">
-    <%= form_tag kindergardens_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a KiTa pet by name, language, or address"
-        %>
-      <%= submit_tag "Search", class: "btn btn-primary", style:"margin-top:15px;" %>
-    <% end %>
-  </div>
+<div class='bg'></div>
+<div class="jumbotron paral paralsec">
+  <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text justify-content-center align-items-center">
+        <div class="col-lg-8 col-md-6 d-flex align-items-end">
+          <div class="text text-center">
+            <h1 class="mb-4">The Simplest <br>Way to Find Property</h1>
+            <p style="font-size: 18px;">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts</p>
+            <form action="#" class="search-location mt-md-5">
+              <div class="row justify-content-center">
+                <div class="col-lg-10 align-items-end">
+                  <div class="form-group">
+                    <div class="form-field">
+                      <input type="text" class="form-control" placeholder="Search location">
+                      <button><span class="ion-ios-search"></span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
-</div>
-<% if params[:message].present? %>
-  <p><%= params[:message] %></p>
-<% end %>
-<div class="center-text">
-  <p>Book a place in the perfect KiTa for your kids.</p>
-</div>
+    
+    
 
+    <section class="ftco-section ftco-no-pb">
+      <div class="container">
+      	<div class="row justify-content-center">
+          <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+          	<span class="subheading">Our Services</span>
+            <h2 class="mb-2">The smartest way to find a place</h2>
+          </div>
+        </div>
+        <div class="row d-flex">
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-piggy-bank"></span></div>
+              <div class="media-body py-md-4">
+                <h3>No Downpayment</h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-wallet"></span></div>
+              <div class="media-body py-md-4">
+                <h3>All Cash Offer</h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-file"></span></div>
+              <div class="media-body py-md-4">
+                <h3>Experts in Your Corner</h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+            	<div class="icon d-flex justify-content-center align-items-center"><span class="flaticon-locked"></span></div>
+              <div class="media-body py-md-4">
+                <h3>Lokced in Pricing</h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
