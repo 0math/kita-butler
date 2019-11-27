@@ -28,15 +28,30 @@
        <strong>Email:</strong>
        <%= @kindergarden.email %>
       </p>
+      <p>
+        <strong>Reviews</strong>
+      </p>
+      <% if @reservation.nil? %>
+          <h3>Be the first to leave a review</h3>
+        <% else %>
+          <ul class="list-group">
+           <% @reservation.reviews.each do |review| %>
+             <li class="list-group-item d-flex justify-content-between align-items-center">
+               <span class="badge badge-primary badge-pill">
+                 <% counter = 0 %>
+                 <% 5.times do %>
+                  <i class="fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+                  <% counter += 1 %>
+                 <% end %>
+               </span>
+               <%= review.content %>
+             </li>
+            <% end %>
+          </ul>
+        <% end %>
       <% if @reservation.present? %>
         <%= render "reviews/new", reservation: @reservation, review: @review, condition: @condition %>
       <% end %>
-
-
-      <% if policy(@kindergarden).show? %>
-        <p> <%#= render "reviews/new", kindergarden: @kindergarden, review: @review, condition: @condition %> </p>
-      <% end %>
-
         <div class="container">
           <div class="row">
             <div class="col-12 col-sm-6">

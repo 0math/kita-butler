@@ -16,7 +16,6 @@ class KindergardensController < ApplicationController
   end
 
   def show
-    # @reservations = @kindergarden.reservations.where(kid: current_user.kids)
     @reservation = current_user.reservations.where(kindergarden_id: @kindergarden.id, status: 'accepted').first
     @review = Review.new
   end
