@@ -19,6 +19,12 @@ class KidsController < ApplicationController
     end
   end
 
+  def destroy
+    authorize @kid
+    @kid.delete
+    redirect_to root_path
+  end
+
   private
 
   def kid_params
