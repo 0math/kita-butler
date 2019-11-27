@@ -45,15 +45,15 @@
          </li>
         <% end %>
       </ul>
-      <% if @reservation.nil? %>
+      <% if @my_reservation.nil? %>
         <h3>You will be able to leave a review once you have an accepted reservation in this kita</h3>
       <% else %>
         <% if @kindergarden.reviews.empty? %>
           <h3>Be the first to leave a review</h3>
         <% end %>
       <% end %>
-      <% if @reservation.present? %>
-        <%= render "reviews/new", reservation: @reservation, review: @review, condition: @condition %>
+      <% if @my_reservation.present? %>
+        <%= render "reviews/new", reservation: @my_reservation, review: @review, condition: @condition %>
       <% end %>
     </div>
     <div class="col">
