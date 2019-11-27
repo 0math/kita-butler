@@ -18,6 +18,8 @@
            <%= f.input :first_name %>
            <%= f.input :last_name %>
            <%= f.input :date_of_birth %>
+           <%= f.input :gender, as: :radio_buttons,
+                        collection: ['Boy', 'Girl'] %>
            <%= f.input :primary_language %>
            <%= f.input :secondary_language %>
            <%= f.hidden_field :kindergarden_id, value: @kindergarden.id %>
