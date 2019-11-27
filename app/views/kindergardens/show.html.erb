@@ -34,35 +34,13 @@
               <div style="display: inline-block;">
                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#ModalCenter">
                 APPLY!
-              </button>
+               </button>
+               <% @kid = Kid.new %>
+                <%= render 'form', user: @current_user %>
 
-              <div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLongTitle">Application Form</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
                       <!-- #form -->
-                      <input class="form-control" type="text" placeholder="First Name">
-                      <br>
-                      <input class="form-control" type="text" placeholder="Last name">
-                      <br>
-                      <div class="form-group">
-                        <label for="gender">Gender</label>
-                        <select class="form-control" id="gender">
-                          <option>Male</option>
-                          <option>Female</option>
-                        </select>
-                      </div>
-                      <input class="form-control" type="text" placeholder="Primary Language">
-                      <br>
-                      <input class="form-control" type="text" placeholder="Secondary Language">
-                        <!-- date -->
-                        <br>
+
+
 
                         <!-- date -->
 
