@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="shadow p-3 mb-5 bg-white rounded">
-    <p id="notice"><%= notice %></p>
-    <%= cl_image_tag "placeholder_1", height: 300, width: 400 if @kindergarden.photo.nil?%>
-    <%= cl_image_tag @kindergarden.photo, height: 300, width: 400 unless @kindergarden.photo.nil?%>
-    </p>
+  <div class="row">
+    <div class="col">
+      <p id="notice"><%= notice %></p>
+      <%= cl_image_tag "placeholder_1", height: 300, width: 400 if @kindergarden.photo.nil?%>
+      <%= cl_image_tag @kindergarden.photo, height: 300, width: 400 unless @kindergarden.photo.nil?%>
       <p>
        <strong>Name:</strong>
        <%= @kindergarden.name %>
@@ -55,15 +55,14 @@
       <% if @reservation.present? %>
         <%= render "reviews/new", reservation: @reservation, review: @review, condition: @condition %>
       <% end %>
-        <div class="container">
-          <div class="row">
-            <div class="col-12 col-sm-6">
-              <div style="display: inline-block;">
-               <p><%= link_to "Apply", kindergardens_path, class: "btn btn-primary" %></p>
-              </div>
-          </div>
-        </div>
-      </div>
+    </div>
+    <div class="col">
+      <%= render 'kids/form' %>
+    </div>
   </div>
+
+<%= link_to "Home Page", root_path, class:"btn btn-primary" %>
 </div>
+
+
 

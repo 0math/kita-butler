@@ -19,6 +19,8 @@ class KindergardensController < ApplicationController
     if current_user
       @reservation = current_user.reservations.where(kindergarden_id: @kindergarden.id, status: 'accepted').first
       @review = Review.new
+      @kid = Kid.new
+      # @reservation = Reservation.new
     end
   end
 
