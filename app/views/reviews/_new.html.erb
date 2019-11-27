@@ -3,8 +3,8 @@
     <div class="row">
      <div class="col-sm-12">
       <h3>Add a review</h3>
-        <%= simple_form_for [kindergarden, review] do |f| %>
-          <% if condition %>
+        <%= simple_form_for [reservation, review] do |f| %>
+          <% if reservation.reviews.empty? %>
               <%= f.input :rating, collection: 1..5 %>
               <%= f.input :content %>
               <%= f.submit class: "btn btn-primary"%>

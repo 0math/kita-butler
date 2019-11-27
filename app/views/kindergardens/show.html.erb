@@ -28,8 +28,13 @@
        <strong>Email:</strong>
        <%= @kindergarden.email %>
       </p>
+      <% if @reservation.present? %>
+        <%= render "reviews/new", reservation: @reservation, review: @review, condition: @condition %>
+      <% end %>
+
+
       <% if policy(@kindergarden).show? %>
-        <p> <%= render "reviews/new", kindergarden: @kindergarden, review: @review, condition: @condition %> </p>
+        <p> <%#= render "reviews/new", kindergarden: @kindergarden, review: @review, condition: @condition %> </p>
       <% end %>
 
         <div class="container">
