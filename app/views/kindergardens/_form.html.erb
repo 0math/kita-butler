@@ -20,6 +20,7 @@
            <%= f.input :date_of_birth %>
            <%= f.input :primary_language %>
            <%= f.input :secondary_language %>
+           <%= f.hidden_field :kindergarden_id, value: @kindergarden.id %>
           </div>
            <div class="form-actions">
              <%= f.submit 'APPLY', class: "btn btn-danger" %>

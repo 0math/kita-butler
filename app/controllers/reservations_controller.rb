@@ -7,9 +7,7 @@ def new
   def create
     if @reservation = current_user.kid.reservation(reservation_params)
     flash[:success] = "Your application has been submitted! You will be redirected to your Dashboard."
-    redirect_to pages_dashboards
-    else
-      render :new
+    redirect_to dashboard_path
     end
   end
 
