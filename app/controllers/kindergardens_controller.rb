@@ -17,6 +17,7 @@ class KindergardensController < ApplicationController
   end
 
   def show
+    @kid = Kid.new
   end
 
 
