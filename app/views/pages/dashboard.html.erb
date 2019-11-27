@@ -1,0 +1,40 @@
+<div class="container">
+
+  <h1>Kindergardens I applied to</h1>
+
+  <table style="width: 100%;">
+    <thead>
+      <tr>
+        <th style="border: 1px solid #ddd; padding: 8px;">Kita</th>
+        <th style="border: 1px solid #ddd; padding: 8px;">Status</th>
+        <th style="border: 1px solid #ddd; padding: 8px;">First contacted</th>
+        <th style="border: 1px solid #ddd; padding: 8px;">Last contacted</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @kids.each do |kid| %>
+      <tr>
+        <td style="border: 1px solid #ddd; padding: 8px;">
+          <% kid.reservations.each do |reservation| %>
+          <%= reservation.kindergarden.name %>
+          <% end %>
+        </td>
+        <td style="border: 1px solid #ddd; padding: 8px;">
+          <% kid.reservations.each do |reservation| %>
+          <%= reservation.status %>
+          <% end %>
+        </td>
+        <td style="border: 1px solid #ddd; padding: 8px;">
+          <% kid.reservations.each do |reservation| %>
+          <%= reservation.created_at %>
+          <% end %>
+        </td>
+        <td style="border: 1px solid #ddd; padding: 8px;">
+          Date. <a href="#">Contact again</a>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
