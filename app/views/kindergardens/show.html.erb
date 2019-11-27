@@ -1,31 +1,36 @@
 <div class="container d-flex justify-content-between" >
-    <div class="card" style="width: 60%" >
-      <p id="notice"><%= notice %></p>
-        <%= cl_image_tag "placeholder_1", height: 400, width: 600 if @kindergarden.photo.nil?%>
-        <%= cl_image_tag @kindergarden.photo, height: 400, width: 600 unless @kindergarden.photo.nil?%>
-       <div class=card-description>
-        <p> <strong>Name:</strong>
-            <%= @kindergarden.name %> </p>
-        <p> <strong>Address:</strong>
-            <%= @kindergarden.address %> </p>
+  <div class="card" style="width: 60%" >
+    <p id="notice"><%= notice %></p>
+    <%= cl_image_tag "placeholder_1", height: 400, width: 600 if @kindergarden.photo.nil?%>
+    <%= cl_image_tag @kindergarden.photo, height: 400, width: 600 unless @kindergarden.photo.nil?%>
+    <div class=card-description style="display: flex; justify-content: space-between;">
+      <div>
+      <p><strong>Name:</strong><%= @kindergarden.name %></p>
+      <p> <strong>Address:</strong>
+        <%= @kindergarden.address %> </p>
 
         <p> <strong>Language:</strong>
-            <%= @kindergarden.language %> </p>
-        <p> <strong>Capacity:</strong>
+          <%= @kindergarden.language %> </p>
+          <p> <strong>Capacity:</strong>
             <%= @kindergarden.capacity %> </p>
-        <p> <strong>Phone:</strong>
-            <%= @kindergarden.phone %> </p>
-        <p> <strong>Email:</strong>
-            <%= @kindergarden.email %> </p>
-        <p> <%= link_to "Apply", dashboard_path, class: "btn btn-primary" %> </p>
-       </div>
-     </div>
-    <div id="map"
-      style="width: 40%;
-      height: 645px;"
-      box-shadow: 0px 0px 10px rgba(0,0,0,0.2)
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-</div>
+            <p> <strong>Phone:</strong>
+              <%= @kindergarden.phone %> </p>
+              <p> <strong>Email:</strong>
+                <%= @kindergarden.email %> </p>
+                </div>
+            <%= link_to "Home Page", root_path, class:"btn btn-primary" %>
+            </div>
+                <div id="map"
+                style="width: 100%;
+                height: 645px;"
+                box-shadow: 0px 0px 10px rgba(0,0,0,0.2)
+                data-markers="<%= @markers.to_json %>"
+                data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+              </div>
+          </div>
+          <div>
+            <%= render 'kids/form' %>
+          </div>
+        </div>
+
 

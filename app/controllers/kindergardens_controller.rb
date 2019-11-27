@@ -7,11 +7,11 @@ class KindergardensController < ApplicationController
     if params[:query].present?
       sql_query = "name ILIKE :query or address ILIKE :query or language ILIKE :query"
       @kindergardens = @kindergardens.where(sql_query, query: "%#{params[:query]}%")
-      # if @kindergardens.exists?
-      #   return @kindergardens
-      #  else
-      #    redirect_to root_path(message: "Sorry no KiTa matches your search")
-      # end
+      if @kindergardens.exists?
+       return @kindergardens
+      else
+        redirect_to root_path(message: "Sorry no KiTa matches your search")
+      end
     end
     @markers = @kindergardens.map do |kindergarden|
       {
@@ -22,6 +22,8 @@ class KindergardensController < ApplicationController
   end
 
   def show
+    @kid = Kid.new
+    @reservation = Reservation.new
     @markers = [{ lat: @kindergarden.latitude, lng: @kindergarden.longitude }]
   end
 
