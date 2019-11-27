@@ -16,8 +16,10 @@ class KindergardensController < ApplicationController
   end
 
   def show
-    @reservation = current_user.reservations.where(kindergarden_id: @kindergarden.id, status: 'accepted').first
-    @review = Review.new
+    if current_user
+      @reservation = current_user.reservations.where(kindergarden_id: @kindergarden.id, status: 'accepted').first
+      @review = Review.new
+    end
   end
 
   private

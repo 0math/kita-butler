@@ -31,24 +31,27 @@
       <p>
         <strong>Reviews</strong>
       </p>
-      <% if @reservation.nil? %>
-          <h3>Be the first to leave a review</h3>
-        <% else %>
-          <ul class="list-group">
-           <% @reservation.reviews.each do |review| %>
-             <li class="list-group-item d-flex justify-content-between align-items-center">
-               <span class="badge badge-primary badge-pill">
-                 <% counter = 0 %>
-                 <% 5.times do %>
-                  <i class="fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
-                  <% counter += 1 %>
-                 <% end %>
-               </span>
-               <%= review.content %>
-             </li>
-            <% end %>
-          </ul>
+      <ul class="list-group">
+       <% @kindergarden.reviews.each do |review| %>
+         <li class="list-group-item d-flex justify-content-between align-items-center">
+           <span class="badge badge-primary badge-pill">
+             <% counter = 0 %>
+             <% 5.times do %>
+              <i class="fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+              <% counter += 1 %>
+             <% end %>
+           </span>
+           <%= review.content %>
+         </li>
         <% end %>
+      </ul>
+      <% if @reservation.nil? %>
+        <h3>You will be able to leave a review once you have an accepted reservation in this kita</h3>
+      <% else %>
+        <% if @kindergarden.reviews.empty? %>
+          <h3>Be the first to leave a review</h3>
+        <% end %>
+      <% end %>
       <% if @reservation.present? %>
         <%= render "reviews/new", reservation: @reservation, review: @review, condition: @condition %>
       <% end %>
