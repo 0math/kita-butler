@@ -1,11 +1,11 @@
-<div class="container">
-  <div class="shadow p-3 mb-5 bg-white rounded d-flex">
-    <div class="card">
+<div class="container d-flex justify-content-between" >
+  <!--<div class="shadow p-3 mb-5 bg-white rounded d-flex"> -->
+    <div class="card" style="width: 60%" >
       <p id="notice"><%= notice %></p>
-    <%= cl_image_tag "placeholder_1", height: 300, width: 400 if @kindergarden.photo.nil?%>
-    <%= cl_image_tag @kindergarden.photo, height: 300, width: 400 unless @kindergarden.photo.nil?%>
+    <%= cl_image_tag "placeholder_1", height: 400, width: 600 if @kindergarden.photo.nil?%>
+    <%= cl_image_tag @kindergarden.photo, height: 400, width: 600 unless @kindergarden.photo.nil?%>
     </p>
-      <p>
+      <div class=card-description> <p>
        <strong>Name:</strong>
        <%= @kindergarden.name %>
       </p>
@@ -31,12 +31,14 @@
       </p>
        <p><%= link_to "Apply", kindergardens_path, class: "btn btn-primary" %></p>
   </div>
-     <div class="map"
-      style="width: 100%;
-      height: 600px;"
+  </div>
+     <div id="map"
+      style="width: 40%;
+      height: 645px;"
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.2)
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
      ></div>
-  </div>
+  <!--</div> -->
 </div>
 
