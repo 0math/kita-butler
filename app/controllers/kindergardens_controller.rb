@@ -18,6 +18,7 @@ class KindergardensController < ApplicationController
 
   def show
     @kid = Kid.new
+    @reservation = Reservation.new
   end
 
 
