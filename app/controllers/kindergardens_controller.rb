@@ -22,6 +22,10 @@ class KindergardensController < ApplicationController
   end
 
   def show
+    if current_user
+      @my_reservation = current_user.reservations.where(kindergarden_id: @kindergarden.id, status: 'accepted').first
+      @review = Review.new
+    end
     @kid = Kid.new
     @reservation = Reservation.new
     @markers = [{ lat: @kindergarden.latitude, lng: @kindergarden.longitude }]
