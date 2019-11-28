@@ -34,7 +34,7 @@ class KindergardensController < ApplicationController
   private
 
   def kindergarden_params
-    params.require(:kindergarden).permit(:name, :address, :language, :capacity, :photo, :email, :phone)
+    params.require(:kindergarden).permit(:name, :address, :language, :capacity, :photo, :email, :phone, :is_available)
   end
 
   def set_kindergarden

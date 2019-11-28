@@ -1,27 +1,40 @@
-<div class="container d-flex justify-content-between" >
-  <div class="card" style="width: 60%" >
-    <p id="notice"><%= notice %></p>
-    <%= cl_image_tag "placeholder_1", height: 400, width: 600 if @kindergarden.photo.nil?%>
-    <%= cl_image_tag @kindergarden.photo, height: 400, width: 600 unless @kindergarden.photo.nil?%>
-    <div class=card-description style="display: flex; justify-content: space-between;">
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <p id="notice"><%= notice %></p>
+      <%= cl_image_tag "placeholder_1", height: 300, width: 400 if @kindergarden.photo.nil?%>
+      <%= cl_image_tag @kindergarden.photo, height: 300, width: 400 unless @kindergarden.photo.nil?%>
       <div>
         <p>
-          <strong>Name:</strong>
-          <%= @kindergarden.name %>
+          <strong><%= @kindergarden.name.upcase %></strong>
+        </p>
+        <p>
+          <strong>Are there free available spots?:</strong>
+          <%= @kindergarden.is_available %>
         </p>
         <p>
           <strong>Address:</strong>
           <%= @kindergarden.address %>
         </p>
-        <p><strong>Language:</strong>
-          <%= @kindergarden.language %></p>
-        <p><strong>Capacity:</strong>
-          <%= @kindergarden.capacity %></p>
-        <p><strong>Phone:</strong>
-          <%= @kindergarden.phone %></p>
-        <p><strong>Email:</strong>
-          <%= @kindergarden.email %></p>
-        <p><strong>Reviews</strong></p>
+        <p>
+          <strong>Language:</strong>
+          <%= @kindergarden.language %>
+        </p>
+        <p>
+          <strong>Capacity:</strong>
+          <%= @kindergarden.capacity %>
+        </p>
+        <p>
+          <strong>Phone:</strong>
+          <%= @kindergarden.phone %>
+        </p>
+        <p>
+          <strong>Email:</strong>
+          <%= @kindergarden.email %>
+        </p>
+        <p>
+         <strong>Reviews</strong>
+        </p>
       </div>
       <div><%= link_to "Home Page", root_path, class:"btn btn-primary" %></div>
       </div>
@@ -58,14 +71,15 @@
       <% end %>
     </div>
     <div class="col">
+      <% if @kindergarden.is_available == true %>
       <%= render 'kids/form' %>
+      <% else %>
+      <%= render 'kids/notavailable' %>
+      <%= "Sorry, at the moment you cannot apply to this KiTa" %>
+      <% end %>
     </div>
   </div>
 </div>
 
 
-<div>
-  <p>
 
-  </p>
-</div>
