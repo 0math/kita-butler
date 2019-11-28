@@ -28,8 +28,11 @@
 			span{
 				font-size: 30px;
 				color: $white;
-			}
-		}
+      }
+      &:focus{
+        outline:none !important;
+      }
+    }
 	}
 }
 

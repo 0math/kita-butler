@@ -42,10 +42,9 @@
     content: '';
     position: absolute;
     left: 0;
-    left: -33px;
     bottom: 0;
     overflow: visible;
-    width: 52%;
+    width: 50%;
     height: 92px;
     z-index: 1;
     transform: skewY(6deg);
@@ -55,10 +54,10 @@
   &:after {
     content: '';
     position: absolute;
-    right: -33px;
+    right: 0px;
     bottom: 0;
     overflow: visible;
-    width: 52%;
+    width: 50%;
     height: 92px;
     z-index: 1;
     transform: skewY(-6deg);
@@ -68,7 +67,7 @@
   .arrow {
     display: flex;
     justify-content: center;
-    align-items: center;
+    
     position: absolute;
     width: 80px;
     height: 80px;
@@ -80,11 +79,21 @@
     z-index: 5;
 
     .fa-long-arrow-alt-down {
+      position: relative;
+      top: 10px;
       color: white;
       font-size: 21px;
+      animation: arrow 2s infinite;
+      transition: all 2s ease-in-out;
+    }
+
+    @keyframes arrow {
+      from { top: 10px;}
+      to { top: 50px;}
     }
   }
 }
+
 
 .content-section {
   padding-top: 80px;
