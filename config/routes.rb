@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :kindergardens, only: [:index, :show] # do
     # resources :reviews, only: :create
   # end
-  resources :reservations, only: [:new, :create] do
+  resources :reservations, only: [:new, :create, :update] do
     resources :reviews, only: :create
   end
   # keeping all comments for further reference, please don't remove for now

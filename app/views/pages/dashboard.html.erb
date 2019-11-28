@@ -34,7 +34,14 @@
           <% end %>
         </td>
         <td style="border: 1px solid #ddd; padding: 8px;">
-          Date. <a href="#">Contact again</a>
+          <% kid.reservations.each do |reservation| %>
+          <%= reservation.updated_at %>
+          <%= link_to "Contact again", reservation_path(reservation),
+          method: :patch,
+          data: {confirm: 'You are about to contact this Kindergarden again. Would you like to proceed?' },
+          class: "btn btn-primary" %>
+
+          <% end %>
         </td>
       </tr>
       <% end %>
