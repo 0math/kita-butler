@@ -1,17 +1,24 @@
 class ReservationsController < ApplicationController
 
-def new
+  def new
     @reservation = Reservation.new
   end
 
   # def create
   #   if @reservation = current_user.kid.reservation(reservation_params)
-  #   flash[:success] = "Your application has been submitted! You will be redirected to your Dashboard."
-  #   redirect_to dashboard_path
+  #     flash[:success] = "Your application has been submitted! You will be redirected to your Dashboard."
+  #     redirect_to dashboard_path
   #   end
   # end
 
- private
+  def update
+    @reservation = Reservation.find(params[:id])
+    authorize @reservation
+    @reservation.update(updated_at: Time.now)
+    redirect_to dashboard_path
+  end
+
+  private
 
   def set_kindergarden
     @kindergarden = Kindergarden.find(params[:kindergarden_id])
@@ -20,8 +27,4 @@ def new
   def reservation_params
     params.require(:reservation).permit(:created_at, :kid_id, :kindergarden_id)
   end
-
-end
-
-
 end

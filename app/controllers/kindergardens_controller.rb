@@ -3,15 +3,21 @@ class KindergardensController < ApplicationController
   before_action :set_kindergarden, only: [:show]
 
   def index
-    @kindergardens = policy_scope(Kindergarden)
+    @kindergardens = policy_scope(Kindergarden).geocoded
     if params[:query].present?
       sql_query = "name ILIKE :query or address ILIKE :query or language ILIKE :query"
       @kindergardens = @kindergardens.where(sql_query, query: "%#{params[:query]}%")
       if @kindergardens.exists?
-        return @kindergardens
+       return @kindergardens
       else
         redirect_to root_path(message: "Sorry no KiTa matches your search")
       end
+    end
+    @markers = @kindergardens.map do |kindergarden|
+      {
+        lat: kindergarden.latitude,
+        lng: kindergarden.longitude
+      }
     end
   end
 
@@ -22,12 +28,13 @@ class KindergardensController < ApplicationController
     end
     @kid = Kid.new
     @reservation = Reservation.new
+    @markers = [{ lat: @kindergarden.latitude, lng: @kindergarden.longitude }]
   end
 
   private
 
   def kindergarden_params
-    params.require(:kindergarden).permit(:name, :address, :language, :capacity, :photo, :email, :phone)
+    params.require(:kindergarden).permit(:name, :address, :language, :capacity, :photo, :email, :phone, :is_available)
   end
 
   def set_kindergarden
