@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_28_094355) do
+ActiveRecord::Schema.define(version: 2019_11_28_155502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,12 @@ ActiveRecord::Schema.define(version: 2019_11_28_094355) do
     t.float "latitude"
     t.float "longitude"
     t.boolean "is_available"
+    t.string "opening_hours"
+    t.string "closing_hours"
+    t.string "size"
+    t.string "age_structure"
+    t.string "edu_system"
+    t.string "aesthetic_edu"
   end
 
   create_table "reservations", force: :cascade do |t|
