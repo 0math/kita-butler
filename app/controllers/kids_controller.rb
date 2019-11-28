@@ -1,6 +1,5 @@
 class KidsController < ApplicationController
 
-
   def new
     @kid = current_user.kids.new
     authorize @kid
