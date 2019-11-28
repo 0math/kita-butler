@@ -1,22 +1,84 @@
-<div class="banner" style="background-image: url(<%= image_url('bannerphoto.jpg') %>);">
-<div class="container">
-  <div class="container-text">
-    <%= form_tag kindergardens_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a KiTa pet by name, language, or address"
-        %>
-      <%= submit_tag "Search", class: "btn btn-primary", style:"margin-top:15px;" %>
-    <% end %>
+<div class='bg'></div>
+<div class="jumbotron paral paralsec">
+  
+  <div class="container">
+    <div class="row no-gutters slider-text justify-content-center align-items-center">
+      <div class="col-lg-8 col-md-6 d-flex justify-content-center align-items-end">
+        <div class="text text-center">
+          <h1 class="main-title">Find the perfect KINDERGARDEN</h1>
+          <p style="font-size: 18px;">In all this world there is nothing so beautiful as a happy child</p>
+          <%= form_tag kindergardens_path, method: :get, class: "search-location mt-md-5" do %>
+                  <div class="row justify-content-center">
+                    <div class="col-lg-10 align-items-end">
+                      <div class="form-group">
+                        <div class="form-field">
+                          <%= text_field_tag :query,
+                            params[:query],
+                            class: "form-control",
+                            placeholder: "Search by name, language or location"
+                            %>
+                          <button ><span class="ion-ios-search"><i class="fas fa-search"></i></span></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-</div>
-<% if params[:message].present? %>
-  <p><%= params[:message] %></p>
-<% end %>
-<div class="center-text">
-  <p>Book a place in the perfect KiTa for your kids.</p>
+    
+<div class="overlay">
+<a href="#apply">
+  <div class="arrow">
+    <i class="fas fa-long-arrow-alt-down"></i>
+  </div>
+  </a>
 </div>
 
-
+<section class="content-section" id="apply">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <span class="sub-title">KITA BUTLER</span>
+        <h2 class="section-heading text-uppercase">The simplest way to find a place</h2>
+        <h3 class="section-subheading text-muted">We help you to find the kindergardens, apply and track the process.</h3>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-3">
+        <span class="fa-stack fa-4x">
+          <i class="fas fa-circle fa-stack-2x text-primary"></i>
+          <i class="fas fa-search-location fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">1. Search</h4>
+        <p class="text-muted">Find the kindergardens according to your requirements and expectations. </p>
+      </div>
+      <div class="col-md-3">
+        <span class="fa-stack fa-4x">
+          <i class="fas fa-circle fa-stack-2x text-primary"></i>
+          <i class="fas fa-file-alt fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">2. Apply</h4>
+        <p class="text-muted">Apply to all your favourite kindergardens, our service will help you with communication.</p>
+      </div>
+      <div class="col-md-3">
+        <span class="fa-stack fa-4x">
+          <i class="fas fa-circle fa-stack-2x text-primary"></i>
+          <i class="fas fa-baby fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">3. Track</h4>
+        <p class="text-muted">Stay ahead of your application process, until you get accepted.</p>
+      </div>
+        <div class="col-md-3">
+        <span class="fa-stack fa-4x">
+          <i class="fas fa-circle fa-stack-2x text-primary"></i>
+          <i class="fas fa-child fa-stack-1x fa-inverse"></i>
+        </span>
+        <h4 class="service-heading">4. Get a place</h4>
+        <p class="text-muted">Congratulations! A new life journey is starting! </p>
+      </div>
+    </div>
+  </div>
+</section>
