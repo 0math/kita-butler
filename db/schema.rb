@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2019_11_28_094355) do
     t.datetime "updated_at", null: false
     t.string "phone"
     t.string "email"
+    t.float "latitude"
+    t.float "longitude"
     t.boolean "is_available"
   end
 

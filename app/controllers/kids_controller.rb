@@ -1,5 +1,4 @@
 class KidsController < ApplicationController
-
   def new
     @kid = current_user.kids.new
     authorize @kid
@@ -7,7 +6,6 @@ class KidsController < ApplicationController
 
   def create
     @kid = current_user.kids.new(kid_params)
-
     @kindergarden = Kindergarden.find(params[:kid][:kindergarden_id])
     authorize @kid
     if @kid.save

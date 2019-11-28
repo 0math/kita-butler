@@ -17,6 +17,8 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'dotenv-rails'
 gem 'cloudinary', '~> 1.9.1'
+gem 'geocoder'
+
 # gem 'pickadate-rails'
 group :development do
   gem 'web-console', '>= 3.3.0'

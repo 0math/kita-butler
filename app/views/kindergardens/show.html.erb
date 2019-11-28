@@ -4,37 +4,47 @@
       <p id="notice"><%= notice %></p>
       <%= cl_image_tag "placeholder_1", height: 300, width: 400 if @kindergarden.photo.nil?%>
       <%= cl_image_tag @kindergarden.photo, height: 300, width: 400 unless @kindergarden.photo.nil?%>
-      <p>
-       <strong>Name:</strong>
-       <%= @kindergarden.name %>
-      </p>
-       <p>
-       <strong>Are there free available spots?:</strong>
-       <%= @kindergarden.is_available %>
-      </p>
-      <p>
-        <strong>Address:</strong>
-        <%= @kindergarden.address %>
-      </p>
-      <p>
-       <strong>Language:</strong>
-       <%= @kindergarden.language %>
-      </p>
-      <p>
-       <strong>Capacity:</strong>
-       <%= @kindergarden.capacity %>
-      </p>
-      <p>
-       <strong>Phone:</strong>
-       <%= @kindergarden.phone %>
-      </p>
-      <p>
-       <strong>Email:</strong>
-       <%= @kindergarden.email %>
-      </p>
-      <p>
-        <strong>Reviews</strong>
-      </p>
+      <div>
+        <p>
+          <strong><%= @kindergarden.name.upcase %></strong>
+        </p>
+        <p>
+          <strong>Are there free available spots?:</strong>
+          <%= @kindergarden.is_available %>
+        </p>
+        <p>
+          <strong>Address:</strong>
+          <%= @kindergarden.address %>
+        </p>
+        <p>
+          <strong>Language:</strong>
+          <%= @kindergarden.language %>
+        </p>
+        <p>
+          <strong>Capacity:</strong>
+          <%= @kindergarden.capacity %>
+        </p>
+        <p>
+          <strong>Phone:</strong>
+          <%= @kindergarden.phone %>
+        </p>
+        <p>
+          <strong>Email:</strong>
+          <%= @kindergarden.email %>
+        </p>
+        <p>
+         <strong>Reviews</strong>
+        </p>
+      </div>
+      <div><%= link_to "Home Page", root_path, class:"btn btn-primary" %></div>
+      </div>
+       <div
+         id="map"
+         style="width: 100%;
+         height: 600px;"
+         data-markers="<%= @markers.to_json %>"
+         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
       <ul class="list-group">
        <% @kindergarden.reviews.each do |review| %>
          <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -50,7 +60,7 @@
         <% end %>
       </ul>
       <% if @my_reservation.nil? %>
-        <h3>You will be able to leave a review once you have an accepted reservation in this kita</h3>
+        <h3>You will be able to leave a review once you have an accepted reservation in this kindergarden</h3>
       <% else %>
         <% if @kindergarden.reviews.empty? %>
           <h3>Be the first to leave a review</h3>
@@ -69,8 +79,6 @@
       <% end %>
     </div>
   </div>
-
-<%= link_to "Home Page", root_path, class:"btn btn-primary" %>
 </div>
 
 
