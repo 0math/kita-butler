@@ -7,18 +7,22 @@
         <div class="text text-center">
           <h1 class="main-title">Find the perfect KINDERGARDEN</h1>
           <p style="font-size: 18px;">In all this world there is nothing so beautiful as a happy child</p>
-          <form action="#" class="search-location mt-md-5">
-            <div class="row justify-content-center">
-              <div class="col-lg-10 align-items-end">
-                <div class="form-group">
-                  <div class="form-field">
-                    <input type="text" class="form-control" placeholder="Search by name, language or location">
-                    <button><span class="ion-ios-search"><i class="fas fa-search"></i></span></button>
+          <%= form_tag kindergardens_path, method: :get, class: "search-location mt-md-5" do %>
+                  <div class="row justify-content-center">
+                    <div class="col-lg-10 align-items-end">
+                      <div class="form-group">
+                        <div class="form-field">
+                          <%= text_field_tag :query,
+                            params[:query],
+                            class: "form-control",
+                            placeholder: "Search by name, language or location"
+                            %>
+                          <button ><span class="ion-ios-search"><i class="fas fa-search"></i></span></button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </form>
+          <% end %>
         </div>
       </div>
     </div>
