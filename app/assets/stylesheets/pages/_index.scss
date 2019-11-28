@@ -1,2 +1,35 @@
 // Import page-specific CSS files here.
 @import "home";
+
+body {
+	font-size: 16px;
+	line-height: 1.8;
+	font-weight: 400;
+	color: lighten($black,40%);
+	&.menu-show {
+		overflow: hidden;
+		position: fixed;
+		height: 100%;
+		width: 100%;
+	}
+}
+a {
+	transition: .3s all ease;
+	color: $primary;
+	&:hover, &:focus {
+		text-decoration: none;
+		color: $primary;
+		outline: none !important;
+	}
+}
+h1, h2, h3 {
+  line-height: 1.5;
+  letter-spacing: 3px;
+	color: rgba(0,0,0,.8);
+  font-weight: 400;
+  font-family: 'Abril Fatface', cursive;
+}
+
+.container{
+	max-width: 1250px;
+}
