@@ -1,15 +1,16 @@
-class KindergardenPolicy < ApplicationPolicy
+class KidPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
 
-  def show?
+  def new?
     true
   end
 
   def create?
     true
   end
+
 end

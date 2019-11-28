@@ -1,5 +1,7 @@
 import "bootstrap";
 import "jquery";
+import 'mapbox-gl/dist/mapbox-gl.css';
+import { initMapbox } from '../plugins/init_mapbox';
 
 var jumboHeight = $('.jumbotron').outerHeight();
 function parallax(){
@@ -69,3 +71,4 @@ var OnePageNav = function() {
   })
 };
 OnePageNav();
+initMapbox();

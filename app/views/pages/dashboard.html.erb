@@ -5,6 +5,7 @@
   <table style="width: 100%;">
     <thead>
       <tr>
+        <th style="border: 1px solid #ddd; padding: 8px;">Child</th>
         <th style="border: 1px solid #ddd; padding: 8px;">Kita</th>
         <th style="border: 1px solid #ddd; padding: 8px;">Status</th>
         <th style="border: 1px solid #ddd; padding: 8px;">First contacted</th>
@@ -14,6 +15,9 @@
     <tbody>
       <% @kids.each do |kid| %>
       <tr>
+        <td style="border: 1px solid #ddd; padding: 8px;">
+          <%= kid.first_name  %>
+        </td>
         <td style="border: 1px solid #ddd; padding: 8px;">
           <% kid.reservations.each do |reservation| %>
           <%= reservation.kindergarden.name %>
@@ -30,11 +34,20 @@
           <% end %>
         </td>
         <td style="border: 1px solid #ddd; padding: 8px;">
-          Date. <a href="#">Contact again</a>
+          <% kid.reservations.each do |reservation| %>
+          <%= reservation.updated_at %>
+          <%= link_to "Contact again", reservation_path(reservation),
+          method: :patch,
+          data: {confirm: 'You are about to contact this Kindergarden again. Would you like to proceed?' },
+          class: "btn btn-primary" %>
+
+          <% end %>
         </td>
       </tr>
       <% end %>
+
     </tbody>
   </table>
-
+  <br>
+  <%= link_to "Home Page", root_path, class:"btn btn-primary" %>
 </div>
