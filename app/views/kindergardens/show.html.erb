@@ -8,6 +8,10 @@
        <strong>Name:</strong>
        <%= @kindergarden.name %>
       </p>
+       <p>
+       <strong>Are there free available spots?:</strong>
+       <%= @kindergarden.is_available %>
+      </p>
       <p>
         <strong>Address:</strong>
         <%= @kindergarden.address %>
@@ -57,7 +61,9 @@
       <% end %>
     </div>
     <div class="col">
+      <% if @kindergarden.is_available == true %>
       <%= render 'kids/form' %>
+      <% end %>
     </div>
   </div>
 
