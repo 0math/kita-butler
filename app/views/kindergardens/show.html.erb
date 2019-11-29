@@ -32,6 +32,21 @@
           <strong>Email:</strong>
           <%= @kindergarden.email %>
         </p>
+        <% if @favourite.nil? %>
+          <p>
+            <strong><%= link_to "Add to favourites", kindergarden_favourites_path(@kindergarden),
+              method: :post,
+              data: {confirm: 'Adding to favourites' },
+              class: "btn btn-primary" %></strong>
+          </p>
+        <% else %>
+          <p hidden>
+            <strong><%= link_to "Add to favourites", kindergarden_favourites_path(@kindergarden),
+              method: :post,
+              data: {confirm: 'Adding to favourites' },
+              class: "btn btn-primary" %></strong>
+          </p>
+        <% end %>
         <p>
          <strong>Reviews</strong>
         </p>
