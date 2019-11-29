@@ -4,21 +4,36 @@
   position: relative;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
   margin-bottom: 20px;
+  height: 330px;
+  overflow: hidden;
 }
 
 .card-img {
-  height: 175px;
+  height: 100%;
   width: 100%;
   background-position: center;
-  object-fit: cover;
+  background-size: cover;
 }
 
 .card-description {
+  position: absolute;
   padding-left: 20px;
   padding-right: 20px;
-  margin: 15px 0;
+  height: 100%;
+  background: white;
+  transition: all .3s ease-in-out;
+  transform: translateY(220px);
+  
   p {
     margin: 0 !important;
+  }
+}
+
+.card:hover {
+  cursor: pointer;
+
+  .card-description {
+    transform: translateY(0);
   }
 }
 

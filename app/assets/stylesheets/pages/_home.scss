@@ -4,7 +4,7 @@
 }
 
 .bg {
-  background: url('bg-1.jpg') no-repeat center center;
+  background: asset-url("bg-1.jpg") no-repeat center center;
   background-size: cover;
   position: fixed;
   width: 100%;
@@ -13,7 +13,7 @@
   left:0;
   z-index: -1;
 }
-     
+
   .jumbotron{
     display: flex;
     align-items: center;
@@ -29,7 +29,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to bottom, white 0%, white 3%, rgba(255, 255, 255, 0.8) 10%, rgba(255, 255, 255, 0) 100%); 
+      background: linear-gradient(to bottom, white 0%, white 3%, rgba(255, 255, 255, 0.7) 10%, rgba(255, 255, 255, 0) 100%);
       z-index: 0;
     }
   }
@@ -37,7 +37,7 @@
 .overlay{
   position: relative;
   top: 50px;
-  
+
   &:before {
     content: '';
     position: absolute;
@@ -67,7 +67,7 @@
   .arrow {
     display: flex;
     justify-content: center;
-    
+
     position: absolute;
     width: 80px;
     height: 80px;
@@ -103,7 +103,7 @@
     font-size: 40px;
     margin: 0;
   }
-  
+
   .section-subheading {
     font-size: 16px;
     font-weight: 400;
