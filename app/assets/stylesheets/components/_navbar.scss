@@ -223,6 +223,33 @@
 	font-size: 20px;
 }
 
+.navbar-application{
+	padding: 1.75rem 1rem;
+	font-family: inherit;
+	font-size: 15px;
+	line-height: 1.8;
+	font-weight: 400;
+	font-family: "Montserrat", "Helvetica", "sans-serif";
+	ul.navbar-nav{
+		display: flex;
+		justify-content: flex-end;
+		flex-direction: row;
 
-
-
+		li:not(:first-of-type){
+			margin-left: 40px;
+		}
+	}
+	.nav-link {
+		color: $black;
+		&:hover, &:focus {
+			text-decoration: none;
+			color: $primary;
+			outline: none !important;
+		}
+	}
+	.nav-item.active{
+		.nav-link {
+			color:$primary;
+		}
+	}
+}

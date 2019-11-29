@@ -10,11 +10,14 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+  <% if controller_name == 'pages' && action_name == 'home' %>
+      <%= render 'shared/navbar_home' %>
+  <% else %>
+     <%= render 'shared/navbar' %>
+  <% end %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-    <%= render 'shared/footer' %>
   </body>
 </html>

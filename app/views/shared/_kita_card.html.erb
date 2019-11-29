@@ -1,0 +1,17 @@
+<div class="card">
+  <% if kindergarden.photo.present? %>
+    <div class="card-img" style="background-image: url('<%= cl_image_path kindergarden.photo, height: 300, width: 400, crop: :fill %>')"></div>
+  <% else %>
+    <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2))"></div>
+  <%end%>
+  <div class="card-description">
+    <span><%= link_to kindergarden.name, kindergarden_path(kindergarden)%></span>
+    <i><%= kindergarden.language %></i>
+    <address><%= kindergarden.address %></address>
+    <p>dfghbikfghb lalaalala lalalal alalalalalal alalalalalal alalalalalal alalalalalal v alalalalalal </p>
+    <div>
+      <%=link_to "More details", kindergarden_path(kindergarden.id) %>
+      <%=link_to "Apply", new_reservation_path %>
+    </div>
+  </div>
+</div>

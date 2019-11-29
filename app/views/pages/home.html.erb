@@ -15,7 +15,8 @@
                           <%= text_field_tag :query,
                             params[:query],
                             class: "form-control",
-                            placeholder: "Search by name, language or location"
+                            placeholder: "Search by name, language or location",
+                            autocomplete: "off"
                             %>
                           <button ><span class="ion-ios-search"><i class="fas fa-search"></i></span></button>
                         </div>
@@ -82,3 +83,4 @@
     </div>
   </div>
 </section>
+<%= render 'shared/footer' %>
