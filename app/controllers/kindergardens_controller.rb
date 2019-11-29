@@ -8,7 +8,7 @@ class KindergardensController < ApplicationController
       sql_query = "name ILIKE :query or address ILIKE :query or language ILIKE :query"
       @kindergardens = @kindergardens.where(sql_query, query: "%#{params[:query]}%")
       if @kindergardens.exists?
-       return @kindergardens
+        @kindergardens
       else
         redirect_to root_path(message: "Sorry no KiTa matches your search")
       end
