@@ -7,5 +7,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @kids = current_user.kids
+    @favourites = current_user.kids.first.favourites
   end
 end

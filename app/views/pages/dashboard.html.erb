@@ -2,13 +2,30 @@
 
   <h1>Kindergardens I applied to</h1>
   <div class="container" id="favourite-kindergardens">
-    <h4>My favourite kindergadens</h4>
-
-
-
+    <h4 style="margin-top: 30px;">My favourite kindergadens</h4>
+    <table style="width: 100%;">
+      <thead>
+        <tr>
+          <th style="border: 1px solid #ddd; padding: 8px;">Kita</th>
+          <th style="border: 1px solid #ddd; padding: 8px;">Address</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @favourites.each do |favourite| %>
+        <tr>
+          <td style="border: 1px solid #ddd; padding: 8px;">
+            <%= favourite.kindergarden.name %>
+          </td>
+          <td style="border: 1px solid #ddd; padding: 8px;">
+            <%= favourite.kindergarden.address %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
   <div class="container" id="all-kindergardens">
-    <h4>All kindergardens</h4>
+    <h4 style="margin-top: 30px;">All kindergardens</h4>
     <table style="width: 100%;">
       <thead>
         <tr>
