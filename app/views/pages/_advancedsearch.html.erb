@@ -1,9 +1,3 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-
     <div class="container py-3 my-1">
     <div class="row text-center pb-1">
         <div class="col-md-12">
@@ -12,11 +6,12 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-body">
+                <form action="/kindergardens" class="card-body">
+                  <input type="hidden" value="<%= params[:query] %>" name="query">
                     <div class="row">
                 <div class="col-md-2">
                     <div class="form-group ">
-                          <select id="inputState" class="form-control" >
+                          <select id="inputState" class="form-control" name="opening_hours">
                             <option selected>... Opening hours...</option>
                             <option>06:00</option>
                             <option>07:00</option>
@@ -28,7 +23,7 @@
                 </div>
                 <div class="col-md-2">
                     <div class="form-group ">
-                          <select id="inputState" class="form-control" >
+                          <select id="inputState" class="form-control" name="closing_hours">
                             <option selected>... Closing hours...</option>
                             <option>16:00</option>
                             <option>17:00</option>
@@ -40,7 +35,7 @@
                 </div>
                 <div class="col-md-2">
                     <div class="form-group ">
-                          <select id="inputState" class="form-control" >
+                          <select id="inputState" class="form-control" name="size">
                             <option selected>... Size...</option>
                             <option >less than 50</option>
                             <option >more than 50</option>
@@ -50,7 +45,7 @@
                 </div>
                 <div class="col-md-2">
                     <div class="form-group ">
-                          <select id="inputState" class="form-control" >
+                          <select id="inputState" class="form-control" name="age_structure">
                             <option selected>... Age Structure...</option>
                             <option >Mixed ages</option>
                             <option >Old homogenous</option>
@@ -60,7 +55,7 @@
                 </div>
                 <div class="col-md-2">
                     <div class="form-group ">
-                          <select id="inputState" class="form-control" >
+                          <select id="inputState" class="form-control" name="edu_system">
                             <option selected>... Educational System...</option>
                               <option >Emmy Picker</option>
                               <option >Freinet</option>
@@ -75,7 +70,7 @@
                 </div>
                 <div class="col-md-2">
                     <div class="form-group ">
-                          <select id="inputState" class="form-control" >
+                          <select id="inputState" class="form-control" name="aesthetic_edu" >
                             <option selected>... Aesthetic Education...</option>
                               <option >Health</option>
                               <option >Disabilitiy Integr.</option>
@@ -89,16 +84,22 @@
                         </div>
                 </div>
                 <div class="col-md-2">
-                    <button type="button" class="btn btn-dark">Advanced Search</button>
+                    <button type="submit" class="btn btn-dark">Advanced Search</button>
 
                 </div>
             </div>
-                </div>
+                </form>
             </div>
 
         </div>
     </div>
 </div>
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 
 
 
