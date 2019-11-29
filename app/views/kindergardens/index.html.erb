@@ -1,38 +1,24 @@
-<div class="container">
+<div class="container-fluid">
   <h1> Available KiTas </h1>
   <div class="row">
-    <% @kindergardens.each do |kindergarden| %>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card">
-         <% if kindergarden.photo.present? %>
-           <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path kindergarden.photo, height: 300, width: 400, crop: :fill %>')">
-          </div>
-            <div class="card-description">
-              <h3><%= link_to kindergarden.name, kindergarden_path(kindergarden)%></h3>
-              <h4><%= kindergarden.language %></h4>
-              <h4><%= kindergarden.address %></h4>
-
-            </div>
-          </div>
-          <% else %>
-            <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2))"></div>
-            <div class="card-description">
-              <h3><%= link_to kindergarden.name, kindergarden_path(kindergarden)%></h3>
-              <h4><%= kindergarden.language %></h4>
-              <h4><%= kindergarden.address %></h4>
-            </div>
-      </div>
-        <% end %>
+  <p> Filter </p>
   </div>
-    <% end %>
-    <div
-     id="map"
-     style="width: 100%;
-     height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
+  <div class="row">
+    <div class="col-8">
+      <div class="row">
+        <% @kindergardens.each do |kindergarden| %>
+          <div class="col-4">
+            <%= render "shared/kita_card", kindergarden: kindergarden %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-4">
+      <div
+        id="map"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
