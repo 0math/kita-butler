@@ -1,10 +1,10 @@
 class FavouritesController < ApplicationController
 
   def create
-    # @user = current_user.id -- if we chose to link favourites and users tables
-    @kid = current_user.kids.first
+    # @kid = current_user.kids.first
+    @user = current_user
     @kindergarden = Kindergarden.find(params[:kindergarden_id])
-    @favourite = Favourite.new(kid: @kid, kindergarden: @kindergarden)
+    @favourite = Favourite.new(user: @user, kindergarden: @kindergarden)
     authorize @favourite
     @favourite.save
     redirect_to dashboard_path
