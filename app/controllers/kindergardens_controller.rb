@@ -31,6 +31,7 @@ class KindergardensController < ApplicationController
         redirect_to root_path(message: "Sorry no KiTa matches your search")
       end
     end
+
     @markers = @kindergardens.map do |kindergarden|
       {
         lat: kindergarden.latitude,
@@ -48,6 +49,7 @@ class KindergardensController < ApplicationController
     @kid = Kid.new
     @reservation = Reservation.new
     @markers = [{ lat: @kindergarden.latitude, lng: @kindergarden.longitude }]
+
   end
 
   private
@@ -62,3 +64,4 @@ class KindergardensController < ApplicationController
     authorize @kindergarden
   end
 end
+
