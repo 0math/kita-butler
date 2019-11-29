@@ -9,8 +9,11 @@ class KidsController < ApplicationController
     @kindergarden = Kindergarden.find(params[:kid][:kindergarden_id])
     authorize @kid
     if @kid.save
+      flash[:notice] = 'Your application has been sent successfully!'
+      # after changing the kids profile and reservation create logic this will become "Your kid has been successfully added"
       redirect_to dashboard_path
     else
+      flash[:alert] = 'Something went wrong, please try again!'
       render 'kindergardens/show'
     end
     if params[:kid][:kindergarden_id]
