@@ -1,15 +1,15 @@
 class ReservationsController < ApplicationController
-
   def new
     @reservation = Reservation.new
   end
 
   # def create
-  #   if @reservation = current_user.kid.reservation(reservation_params)
-  #     flash[:success] = "Your application has been submitted! You will be redirected to your Dashboard."
-  #     redirect_to dashboard_path
-  #   end
-  # end
+   # if @reservation = current_user.kid.reservation(reservation_params)
+   # needs to be changed as soon as kids creation logic is in place
+     # flash[:success] = "Your application has been submitted! You will be redirected to your Dashboard."
+     # redirect_to dashboard_path
+    # end
+ # end
 
   def update
     @reservation = Reservation.find(params[:id])
