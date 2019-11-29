@@ -17,6 +17,7 @@ class KindergardensController < ApplicationController
       {
         lat: kindergarden.latitude,
         lng: kindergarden.longitude
+        infoWindow: render_to_string(partial: "info_window", locals: { kindergarden: kindergarden })
       }
     end
   end
