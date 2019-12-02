@@ -6,19 +6,20 @@ class KidsController < ApplicationController
 
   def create
     @kid = current_user.kids.new(kid_params)
-    @kindergarden = Kindergarden.find(params[:kid][:kindergarden_id])
+    # @kindergarden = Kindergarden.find(params[:kid][:kindergarden_id])
     authorize @kid
     if @kid.save
-      flash[:notice] = 'Your application has been sent successfully!'
+      flash[:notice] = 'A new kid has been added to your profile successfully!'
       # after changing the kids profile and reservation create logic this will become "Your kid has been successfully added"
-      redirect_to dashboard_path
+      # redirecting to your profile with the list of current_user.kids
+      redirect_to edit_user_registration_path(current_user)
     else
       flash[:alert] = 'Something went wrong, please try again!'
-      render 'kindergardens/show'
+      redirect_to new_kid_path(@kid)
     end
-    if params[:kid][:kindergarden_id]
-      Reservation.create(kid: @kid, kindergarden: @kindergarden, status: "Pending", created_at: Time.now)
-    end
+    # if params[:kid][:kindergarden_id]
+    #   Reservation.create(kid: @kid, kindergarden: @kindergarden, status: "Pending", created_at: Time.now)
+    # end
   end
 
   # def destroy
