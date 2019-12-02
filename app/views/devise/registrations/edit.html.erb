@@ -38,7 +38,7 @@
           <% current_user.kids.each do |kid| %>
           <tr>
             <td style="border: 1px solid #ddd; padding: 8px;">
-              <%= kid.first_name %>
+              <%= link_to kid.first_name, edit_kid_path(kid) %>
             </td>
             <td style="border: 1px solid #ddd; padding: 8px;">
               <%= kid.last_name %>
