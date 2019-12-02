@@ -24,12 +24,30 @@
                   required: true,
                   input_html: { autocomplete: "current-password" } %>
     </div>
-    <h3>Your kids</h3>
-    <% current_user.kids.each do |kid| %>
-      <p><%= kid.first_name %></p>
-      <p><%= kid.last_name %></p>
-      <p>----</p>
-    <% end %>
+
+    <div class="container" id="my-kids">
+      <h4 style="margin-top: 30px;">Your kids</h4>
+      <table style="width: 100%;">
+        <thead>
+          <tr>
+            <th style="border: 1px solid #ddd; padding: 8px;">First name</th>
+            <th style="border: 1px solid #ddd; padding: 8px;">Last name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% current_user.kids.each do |kid| %>
+          <tr>
+            <td style="border: 1px solid #ddd; padding: 8px;">
+              <%= kid.first_name %>
+            </td>
+            <td style="border: 1px solid #ddd; padding: 8px;">
+              <%= kid.last_name %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 
     <div class="form-actions">
       <%= f.button :submit, "Update" %>
