@@ -2,27 +2,11 @@
   <h1>Form to apply</h1>
 
   <% if current_user.kids.exists? %>
-  <% # THIS SHOULD BE A DROPDOWN WITH KIDS %>
-
-    <div class="dropdown">
-      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Your kids
-      <span class="caret"></span></button>
-      <ul class="dropdown-menu">
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
-      </ul>
-    </div>
-
-
-    <% current_user.kids.each do |kid| %>
-      <p>Apply for <%= kid.first_name %></p>
+    <p>Please select one of your kids and we'll guide you through the application process for this Kindergarden</p>
+    <%= simple_form_for([@kindergarden, @reservation]) do |f| %>
+      <%= f.association :kid, collection: @kids %>
+      <%= f.button :submit, class:"btn btn-primary" %>
     <% end %>
-  <% else %>
-    <h1>no kids choice</h1>
-    <p>you need to add a kid first</p>
-    <% # verify the path to kids/form %>
-    <%= render 'kids/form' %>
   <% end %>
 
   <%= link_to "Home Page", root_path, class:"btn btn-primary" %>
