@@ -11,7 +11,7 @@ class KidsController < ApplicationController
     authorize @kid
     if @kid.save
       flash[:notice] = 'A new kid has been added to your profile successfully!'
-      redirect_to edit_user_registration_path(current_user)
+      redirect_to dashboard_path(current_user)
     else
       flash[:alert] = 'Something went wrong, please try again!'
       redirect_to new_kid_path(@kid)
@@ -32,10 +32,11 @@ class KidsController < ApplicationController
     authorize @kid
     if @kid.update(kid_params)
       flash[:success] = "Your kid's details has been successfully updated!"
+      redirect_to dashboard_path(current_user)
     else
       flash[:alert] = 'Something went wrong, please try again!'
+      redirect_to edit_kid_path(current_user)
     end
-    redirect_to edit_user_registration_path(current_user)
   end
 
   private

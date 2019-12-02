@@ -25,30 +25,6 @@
                   input_html: { autocomplete: "current-password" } %>
     </div>
 
-    <div class="container" id="my-kids">
-      <h4 style="margin-top: 30px;">Your kids</h4>
-      <table style="width: 100%;">
-        <thead>
-          <tr>
-            <th style="border: 1px solid #ddd; padding: 8px;">First name</th>
-            <th style="border: 1px solid #ddd; padding: 8px;">Last name</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% current_user.kids.each do |kid| %>
-          <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;">
-              <%= link_to kid.first_name, edit_kid_path(kid) %>
-            </td>
-            <td style="border: 1px solid #ddd; padding: 8px;">
-              <%= kid.last_name %>
-            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-
     <div class="form-actions">
       <%= f.button :submit, "Update" %>
     </div>
