@@ -5,27 +5,30 @@ class KindergardensController < ApplicationController
   def index
     @kindergardens = policy_scope(Kindergarden).geocoded
     if params[:query].present?
-      sql_query = "name ILIKE :query or address ILIKE :query or language ILIKE :query"
-      @kindergardens = @kindergardens.where(sql_query, query: "%#{params[:query]}%")
+      # sql_query = "name ILIKE :query OR address ILIKE :query OR language ILIKE :query"
+      sql_query = "kindergardens.name @@ :query \
+                    OR kindergardens.address @@ :query \
+                    OR kindergardens.language @@ :query"
+      @kindergardens = Kindergarden.where(sql_query, query: "%#{params[:query]}%")
       if @kindergardens.exists?
        return @kindergardens
-        # if params[:opening_hours] || params[:closing_hours] || params[:size] || params[:age_structure] || params[:edu_system] || params[:aesthetic_edu].present?
+        if params[:opening_hours] || params[:closing_hours] || params[:size] || params[:age_structure] || params[:edu_system] || params[:aesthetic_edu].present?
 
-        #   sql_query2 = "kindergarden.opening_hours @@ :opening_hours\
-        #                 kindergarden.closing_hours @@ :closing_hours\
-        #                 kindergarden.size @@ :size\
-        #                 kindergarden.age_structure @@ :age_structure\
-        #                 kindergarden.edu_system @@ :edu_system\
-        #                 kindergarden.aesthetic_edu @@ :aesthetic_edu"
+          sql_query2 = "kindergardens.opening_hours @@ :opening_hours\
+                        kindergardens.closing_hours @@ :closing_hours\
+                        kindergardens.size @@ :size\
+                        kindergardens.age_structure @@ :age_structure\
+                        kindergardens.edu_system @@ :edu_system\
+                        kindergardens.aesthetic_edu @@ :aesthetic_edu"
 
-        #   @kindergardens = @kindergardens.where(sql_query2, opening_hours: "%#{params[:opening_hours]}%",
-        #                                                     closing_hours: "%#{params[:closing_hours]}%",
-        #                                                     size: "%#{params[:size]}%",
-        #                                                     age_structure: "%#{params[:age_structure]}%",
-        #                                                     edu_system: "%#{params[:edu_system]}%",
-        #                                                     aesthetic_edu: "%#{params[:aesthetic_edu]}%")
+          @kindergardens = Kindergarden.where(sql_query2, opening_hours: "%#{params[:opening_hours]}%",
+                                                            closing_hours: "%#{params[:closing_hours]}%",
+                                                            size: "%#{params[:size]}%",
+                                                            age_structure: "%#{params[:age_structure]}%",
+                                                            edu_system: "%#{params[:edu_system]}%",
+                                                            aesthetic_edu: "%#{params[:aesthetic_edu]}%")
 
-        # end
+        end
       else
         redirect_to root_path(message: "Sorry no KiTa matches your search")
       end
