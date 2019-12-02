@@ -87,10 +87,11 @@
     </div>
     <div class="col">
       <% if @kindergarden.is_available == true %>
-      <%= render 'kids/form' %>
+      <%#= render 'kids/form' %>
+        <%=link_to "Apply", new_kindergarden_reservation_path(@kindergarden), class:"btn btn-primary" %>
       <% else %>
-      <%= render 'kids/notavailable' %>
-      <%= "Sorry, at the moment you cannot apply to this KiTa" %>
+        <%= render 'kids/notavailable' %>
+        <%= "Sorry, at the moment you cannot apply to this KiTa" %>
       <% end %>
     </div>
   </div>
