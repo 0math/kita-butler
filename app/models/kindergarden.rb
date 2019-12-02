@@ -2,11 +2,7 @@ class Kindergarden < ApplicationRecord
   include PgSearch::Model
   has_many :reservations
   has_many :reviews, through: :reservations
-  # pg_search_scope :search_by_name_and_address_and_language,
-  #   against: [ :name, :address, :language ],
-  #   using: {
-  #     tsearch: { prefix: true }
-  #   }#
+
   pg_search_scope :search_by_name_and_address_and_language,
     against: [ :name, :address, :language ],
     using: {
