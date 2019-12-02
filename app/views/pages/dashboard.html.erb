@@ -64,40 +64,42 @@
       </thead>
       <tbody>
         <% @kids.each do |kid| %>
-        <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">
-            <%= kid.first_name  %>
-          </td>
-          <td style="border: 1px solid #ddd; padding: 8px;">
-            <% kid.reservations.each do |reservation| %>
-            <%= reservation.kindergarden.name %>
-            <% end %>
-          </td>
-          <td style="border: 1px solid #ddd; padding: 8px;">
-            <% kid.reservations.each do |reservation| %>
-            <%= reservation.status %>
-            <% end %>
-          </td>
-          <td style="border: 1px solid #ddd; padding: 8px;">
-            <% kid.reservations.each do |reservation| %>
-            <%= reservation.created_at %>
-            <% end %>
-          </td>
-          <td style="border: 1px solid #ddd; padding: 8px;">
-            <% kid.reservations.each do |reservation| %>
-            <%= reservation.updated_at %>
-            <%= link_to "Contact again", reservation_path(reservation),
-            method: :patch,
-            data: {confirm: 'You are about to contact this Kindergarden again. Would you like to proceed?' },
-            class: "btn btn-primary" %>
-            <% end %>
-          </td>
-        </tr>
+          <% if kid.reservations.exists? %>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px;">
+                <%= kid.first_name  %>
+              </td>
+              <td style="border: 1px solid #ddd; padding: 8px;">
+                <% kid.reservations.each do |reservation| %>
+                <%= reservation.kindergarden.name %>
+                <% end %>
+              </td>
+              <td style="border: 1px solid #ddd; padding: 8px;">
+                <% kid.reservations.each do |reservation| %>
+                <%= reservation.status %>
+                <% end %>
+              </td>
+              <td style="border: 1px solid #ddd; padding: 8px;">
+                <% kid.reservations.each do |reservation| %>
+                <%= reservation.created_at %>
+                <% end %>
+              </td>
+              <td style="border: 1px solid #ddd; padding: 8px;">
+                <% kid.reservations.each do |reservation| %>
+                <%= reservation.updated_at %>
+                <%= link_to "Contact again", reservation_path(reservation),
+                method: :patch,
+                data: {confirm: 'You are about to contact this Kindergarden again. Would you like to proceed?' },
+                class: "btn btn-primary" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>
   </div>
-  <div class="container" id="home-button" style="margin-top: 30px;">
+  <div class="container" id="home-button" style="margin-top: 30px; margin-bottom: 10px; ">
     <%= link_to "Home Page", root_path, class:"btn btn-primary" %>
   </div>
 </div>

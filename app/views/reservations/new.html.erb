@@ -1,6 +1,5 @@
 <div class="container">
   <h1>Form to apply</h1>
-  <%= link_to "Home Page", root_path, class:"btn btn-primary" %>
 
   <% if current_user.kids.exists? %>
   <% # THIS SHOULD BE A DROPDOWN WITH KIDS %>
@@ -25,4 +24,6 @@
     <% # verify the path to kids/form %>
     <%= render 'kids/form' %>
   <% end %>
+
+  <%= link_to "Home Page", root_path, class:"btn btn-primary" %>
 </div>
