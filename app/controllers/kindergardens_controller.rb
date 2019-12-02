@@ -4,12 +4,10 @@ class KindergardensController < ApplicationController
 
   def index
     @kindergardens = policy_scope(Kindergarden).geocoded
-    if params[:query].present?
+    if params[:search].present?
       # sql_query = "name ILIKE :query OR address ILIKE :query OR language ILIKE :query"
-      sql_query = "kindergardens.name @@ :query \
-                    OR kindergardens.address @@ :query \
-                    OR kindergardens.language @@ :query"
-      @kindergardens = Kindergarden.where(sql_query, query: "%#{params[:query]}%")
+
+      @kindergardens = Kindergarden.search(params[:search])
       if @kindergardens.exists?
        return @kindergardens
         if params[:opening_hours] || params[:closing_hours] || params[:size] || params[:age_structure] || params[:edu_system] || params[:aesthetic_edu].present?

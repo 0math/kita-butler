@@ -18,7 +18,7 @@ gem 'webpacker'
 gem 'dotenv-rails'
 gem 'cloudinary', '~> 1.9.1'
 gem 'geocoder'
-
+gem 'pg_search', '~> 2.3.0'
 gem 'dotenv-rails', groups: [:development, :test]
 
 # gem 'pickadate-rails'
