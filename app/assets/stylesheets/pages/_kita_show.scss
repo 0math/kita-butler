@@ -35,3 +35,12 @@
   letter-spacing: 1px;
   font-size: 2em;
 }
+
+.kita-show-details {
+  display: flex;
+  justify-content: space-between;
+  h4 {
+    color: $primary
+  }
+}
+
