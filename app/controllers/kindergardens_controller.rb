@@ -5,21 +5,27 @@ class KindergardensController < ApplicationController
   def index
     @kindergardens = policy_scope(Kindergarden).geocoded
     if params[:query].present?
-      sql_query = "name ILIKE :query or address ILIKE :query or language ILIKE :query"
-      @kindergardens = @kindergardens.where(sql_query, query: "%#{params[:query]}%")
-      if @kindergardens.exists?
-        @kindergardens
+
+      @kindergardens = @kindergardens.search_by_name_and_address_and_language(params[:query])
+      if @kindergardens.empty?
+        flash[:alert] = "Sorry no KiTa matches your search."
+        redirect_to(root_path)
       else
-        redirect_to root_path(message: "Sorry no KiTa matches your search")
+        @kindergardens = filter_results(@kindergardens)
+        @markers = show_markers(@kindergardens)
+          if @kindergardens.empty?
+            flash[:alert] = "Sorry no KiTa matches your search."
+            redirect_to(root_path)
+          end
       end
+    elsif params[:query].blank?
+      @kindergardens = filter_results(@kindergardens)
+      @markers = show_markers(@kindergardens)
+    else
+      flash[:alert] = "Sorry no KiTa matches your search."
+      redirect_to(root_path)
     end
-    @markers = @kindergardens.map do |kindergarden|
-      {
-        lat: kindergarden.latitude,
-        lng: kindergarden.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { kindergarden: kindergarden })
-      }
-    end
+
   end
 
   def show
@@ -35,10 +41,47 @@ class KindergardensController < ApplicationController
     @markers = [{ lat: @kindergarden.latitude, lng: @kindergarden.longitude, infoWindow: render_to_string(partial: "info_window", locals: { kindergarden: @kindergarden }) }]
   end
 
+  def filter_results(kindergardens)
+    if params[:opening_hours].present?
+      @kindergardens = kindergardens.where(opening_hours: params[:opening_hours])
+    end
+
+    if params[:closing_hours].present?
+      @kindergardens = kindergardens.where(closing_hours: params[:closing_hours])
+    end
+
+    if params[:size].present?
+      @kindergardens = kindergardens.where(size: params[:size])
+    end
+
+    if params[:age_structure].present?
+      @kindergardens = kindergardens.where(age_structure: params[:age_structure])
+    end
+
+    if params[:edu_system].present?
+      @kindergardens = kindergardens.where(edu_system: params[:edu_system])
+    end
+
+    if params[:aesthetic_edu].present?
+      @kindergardens = kindergardens.where(aesthetic_edu: params[:aesthetic_edu])
+    end
+    @kindergardens
+  end
+
   private
 
+  def show_markers(kindergardens)
+    @markers = kindergardens.map do |kindergarden|
+      {
+        lat: kindergarden.latitude,
+        lng: kindergarden.longitude
+      }
+    end
+  end
+
   def kindergarden_params
-    params.require(:kindergarden).permit(:name, :address, :language, :capacity, :photo, :email, :phone, :is_available)
+    params.require(:kindergarden).permit(:name, :address, :language, :capacity, :photo, :email, :phone, :is_available,
+      :opening_hours, :closing_hours, :size, :age_structure, :edu_system, :aesthetic_edu)
   end
 
   def set_kindergarden
