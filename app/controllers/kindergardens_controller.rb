@@ -30,7 +30,9 @@ class KindergardensController < ApplicationController
 
   def show
     if current_user
+      @all_reservations = current_user.reservations.where(kindergarden_id: @kindergarden.id)
       @my_reservation = current_user.reservations.where(kindergarden_id: @kindergarden.id, status: 'Accepted').first
+      @declined_reservations = current_user.reservations.where(kindergarden_id: @kindergarden.id, status: 'Declined')
       @favourite = current_user.favourites.where(kindergarden_id: @kindergarden.id).first
       @review = Review.new
     end
