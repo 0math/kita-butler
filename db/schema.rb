@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_111517) do
+ActiveRecord::Schema.define(version: 2019_12_03_171304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2019_12_02_111517) do
     t.string "age_structure"
     t.string "edu_system"
     t.string "aesthetic_edu"
+    t.text "description"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|

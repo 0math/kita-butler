@@ -13,7 +13,7 @@
     <span><%= link_to kindergarden.name, kindergarden_path(kindergarden)%></span>
     <i><%= kindergarden.language %></i>
     <address><%= kindergarden.address %></address>
-    <p>dfghbikfghb lalaalala lalalal alalalalalal alalalalalal alalalalalal alalalalalal v alalalalalal </p>
+    <p><%= kindergarden.description %></p>
     <div>
       <%=link_to "More details", kindergarden_path(kindergarden.id) %>
       <% if kindergarden.is_available == true %>
