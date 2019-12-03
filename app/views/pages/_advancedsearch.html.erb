@@ -12,12 +12,23 @@
             <br>
             <br>
               <div class="container" display="flex" id="advanced_search" style="text-align-last: justify;">
-                <%= select_tag "Opening Hours", options_for_select([['06:00', 1], ['07:00', 2], ['08:00', 3], ['09:00', 4], ['10:00', 5]]) %>
-                <%= select_tag "Closing Hours", options_for_select([['16:00', 1], ['17:00', 2], ['18:00', 3], ['19:00', 4], ['20:00', 5]]) %>
-                <%= select_tag "Size", options_for_select([['less than 50', 1], ['more than 50', 2]]) %>
-                <%= select_tag "Age Structure", options_for_select([['Mixed ages', 1], ['Old homogenous', 2], ['Nest group', 3]]) %>
-                <%= select_tag "Educational System", options_for_select([['Emmy Picker', 1], ['Freinet', 2], ['Fröbel', 3], ['Montessory', 4], ['Open Work', 5], ['Reggio', 6], ['Situational', 7], ['Waldorf', 8]]) %>
-                <%= select_tag "Aesthetic Education", options_for_select([['Health', 1], ['Disabilitiy Integr.', 2], ['Intercultural Edu.', 3], ['Body and Movement', 4], ['Natural and Environment', 5], ['Scientific experience', 6], ['Religious Education', 7], ['Theater Education', 8]]) %>
+                <%= label_tag 'opening_hours', 'Opening Hours' %>
+                <%= select_tag "opening_hours", options_for_select([['06:00', '06:00'], ['07:00', '07:00'], ['08:00', '08:00'], ['09:00', '09:00'], ['10:00', '10:00']]), include_blank: true, placeholder: '' %>
+
+                <%= label_tag 'closing_hours', 'Closing Hours' %>
+                <%= select_tag "closing_hours", options_for_select([['16:00', '16:00'], ['17:00', '17:00'], ['18:00', '18:00'], ['19:00', '19:00'], ['20:00', '20:00']]), include_blank: true, placeholder: '' %>
+
+                <%= label_tag 'size', 'Size' %>
+                <%= select_tag "size", options_for_select([['less than 50', 'less than 50'], ['more than 50', 'more than 50']]), include_blank: true, placeholder: '' %>
+
+                <%= label_tag 'age_structure', 'Age Structure' %>
+                <%= select_tag "age_structure", options_for_select([['Mixed ages', 'Mixed ages'], ['Old homogenous', 'Old homogenous'], ['Nest group', 'Nest group']]), include_blank: true, placeholder: '' %>
+
+                <%= label_tag 'edu_system', 'Edu. System' %>
+                <%= select_tag "edu_system", options_for_select([['Emmy Picker', 'Emmy Picker'], ['Freinet', 'Freinet'], ['Fröbel', 'Fröbel'], ['Montessory', 'Montessory'], ['Open Work', 'Open Work'], ['Reggio', 'Reggio'], ['Situational', 'Situational'], ['Waldorf', 'Waldorf']]), include_blank: true, placeholder: '' %>
+
+                <%= label_tag 'aesthetic_edu', 'Aesthetic Edu.' %>
+                <%= select_tag "aesthetic_edu", options_for_select([['Health', 'Health'], ['Disabilitiy Integr.', 'Disabilitiy Integr.'], ['Intercultural Edu.', 'Intercultural Edu.'], ['Body and Movement', 'Body and Movement'], ['Natural and Environment', 'Natural and Environment'], ['Scientific experience', 'Scientific experience'], ['Religious Education', 'Religious Education'], ['Theater Education', 'Theater Education']]), include_blank: true, placeholder: '' %>
               </div>
             <button ><span class="ion-ios-search"><i class="fas fa-search"></i></span></button>
 
