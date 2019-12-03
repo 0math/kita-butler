@@ -16,9 +16,9 @@ class KindergardensController < ApplicationController
     @markers = @kindergardens.map do |kindergarden|
       {
         lat: kindergarden.latitude,
-        lng: kindergarden.longitude
+        lng: kindergarden.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { kindergarden: kindergarden })
-      }
+      };
     end
   end
 
@@ -29,7 +29,7 @@ class KindergardensController < ApplicationController
     end
     @kid = Kid.new
     @reservation = Reservation.new
-    @markers = [{ lat: @kindergarden.latitude, lng: @kindergarden.longitude }]
+    @markers = [{ lat: @kindergarden.latitude, lng: @kindergarden.longitude, infoWindow: render_to_string(partial: "info_window", locals: { kindergarden: @kindergarden }) }]
   end
 
   private
