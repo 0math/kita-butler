@@ -1,108 +1,36 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <p id="notice"><%= notice %></p>
-      <%= cl_image_tag "placeholder_1", height: 300, width: 400 if @kindergarden.photo.nil?%>
-      <%= cl_image_tag @kindergarden.photo, height: 300, width: 400 unless @kindergarden.photo.nil?%>
-      <div>
-        <p>
-          <strong><%= @kindergarden.name.upcase %></strong>
-        </p>
-        <p>
-          <strong>Are there free available spots?:</strong>
-          <%= @kindergarden.is_available %>
-        </p>
-        <p>
-          <strong>Address:</strong>
-          <%= @kindergarden.address %>
-        </p>
-        <p>
-          <strong>Language:</strong>
-          <%= @kindergarden.language %>
-        </p>
-        <p>
-          <strong>Capacity:</strong>
-          <%= @kindergarden.capacity %>
-        </p>
-        <p>
-          <strong>Phone:</strong>
-          <%= @kindergarden.phone %>
-        </p>
-        <p>
-          <strong>Email:</strong>
-          <%= @kindergarden.email %>
-        </p>
-        <% if @favourite.nil? %>
-          <p>
-            <strong><%= link_to "Add to favourites", kindergarden_favourites_path(@kindergarden),
-              method: :post,
-              data: {confirm: 'Adding to favourites' },
-              class: "btn btn-primary" %></strong>
-          </p>
-        <% else %>
-          <p hidden>
-            <strong><%= link_to "Add to favourites", kindergarden_favourites_path(@kindergarden),
-              method: :post,
-              data: {confirm: 'Adding to favourites' },
-              class: "btn btn-primary" %></strong>
-          </p>
-        <% end %>
-        <p>
-         <strong>Reviews</strong>
-        </p>
+<div class="d-flex">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-6">
+        <div class="d-flex">
+          <div class="col-6">
+           <!--<p id="notice"><%= notice %></p>-->
+            <h1>
+              <%= @kindergarden.name.upcase %>
+            </h1>
+             <h4>
+              <%= @kindergarden.address %>
+             </h4>
+        <!-- description missing from the seeds-->
+               <div class="d-flex">
+                <h4>
+                 <%= @kindergarden.phone %>
+                </h4>
+                <h4>
+                 <%= @kindergarden.email %>
+                </h4>
+               </div>
+          </div>
+          <div class=col-6>
+           <div id="map" style="width: 100%; height: 250px;"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+           ></div>
+          </div>
+        </div>
+        <%= render "shared/kita_details", kindergarden: @kindergarden %>
+        <%= render "shared/kita_reviews", kindergarden: @kindergarden %>
       </div>
-      <div><%= link_to "Home Page", root_path, class:"btn btn-primary" %></div>
-      </div>
-       <div
-         id="map"
-         style="width: 100%;
-         height: 600px;"
-         data-markers="<%= @markers.to_json %>"
-         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-      ></div>
-      <ul class="list-group">
-       <% @kindergarden.reviews.each do |review| %>
-         <li class="list-group-item d-flex justify-content-between align-items-center">
-           <span class="badge badge-primary badge-pill">
-             <% counter = 0 %>
-             <% 5.times do %>
-              <i class="fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
-              <% counter += 1 %>
-             <% end %>
-           </span>
-           <%= review.content %>
-         </li>
-        <% end %>
-      </ul>
-      <% if @my_reservation.nil? %>
-        <h3>You will be able to leave a review once you have an accepted reservation in this kindergarden</h3>
-      <% else %>
-        <% if @kindergarden.reviews.empty? %>
-          <h3>Be the first to leave a review</h3>
-        <% end %>
-      <% end %>
-      <% if @my_reservation.present? %>
-        <%= render "reviews/new", reservation: @my_reservation, review: @review, condition: @condition %>
-      <% end %>
-    </div>
-    <div class="col">
-      <% if user_signed_in? %>
-        <% if @kindergarden.is_available == true %>
-          <% if current_user.kids.exists? %>
-            <%=link_to "Apply", new_kindergarden_reservation_path(@kindergarden), class:"btn btn-primary" %>
-          <% else %>
-            <%= link_to "Add your kid first", new_kid_path, class:"btn btn-primary" %>
-          <% end %>
-        <% else %>
-          <%= render 'kids/notavailable' %>
-          <%= "Sorry, at the moment you cannot apply to this KiTa" %>
-        <% end %>
-      <% else %>
-        <%=link_to "Apply", new_kindergarden_reservation_path(@kindergarden), class:"btn btn-primary" %>
-      <% end %>
     </div>
   </div>
 </div>
-
-
-
