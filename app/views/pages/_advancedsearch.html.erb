@@ -1,0 +1,57 @@
+<%= form_tag kindergardens_path, method: :get, class: "search-location mt-md-5" do %>
+  <div class="row justify-content-center">
+    <div class="col-lg-10 align-items-end">
+      <div class="form-group">
+        <div class="form-field">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search by name, language or location",
+            autocomplete: "off"
+            %>
+            <br>
+            <br>
+              <div class="d-flex"  id="advanced_search" style="text-align-last: justify;">
+                <div >
+                  <%= label_tag 'opening_hours', 'Opening Hours' %>
+                  <%= select_tag "opening_hours", options_for_select([['06:00', '06:00'], ['07:00', '07:00'], ['08:00', '08:00'], ['09:00', '09:00'], ['10:00', '10:00']]), include_blank: true, placeholder: '' %>
+                </div>
+                <div >
+                <%= label_tag 'closing_hours', 'Closing Hours' %>
+                <%= select_tag "closing_hours", options_for_select([['16:00', '16:00'], ['17:00', '17:00'], ['18:00', '18:00'], ['19:00', '19:00'], ['20:00', '20:00']]), include_blank: true, placeholder: '' %>
+                </div>
+                <div >
+                <%= label_tag 'size', 'Size' %>
+                <%= select_tag "size", options_for_select([['less than 50', 'less than 50'], ['more than 50', 'more than 50']]), include_blank: true, placeholder: '' %>
+                </div>
+                <div >
+                <%= label_tag 'age_structure', 'Age Structure' %>
+                <%= select_tag "age_structure", options_for_select([['Mixed ages', 'Mixed ages'], ['Old homogenous', 'Old homogenous'], ['Nest group', 'Nest group']]), include_blank: true, placeholder: '' %>
+                </div>
+                <div >
+                <%= label_tag 'edu_system', 'Edu. System' %>
+                <%= select_tag "edu_system", options_for_select([['Emmy Picker', 'Emmy Picker'], ['Freinet', 'Freinet'], ['Fröbel', 'Fröbel'], ['Montessory', 'Montessory'], ['Open Work', 'Open Work'], ['Reggio', 'Reggio'], ['Situational', 'Situational'], ['Waldorf', 'Waldorf']]), include_blank: true, placeholder: '' %>
+                </div>
+                <div >
+                <%= label_tag 'aesthetic_edu', 'Aesthetic Edu.' %>
+                <%= select_tag "aesthetic_edu", options_for_select([['Health', 'Health'], ['Disabilitiy Integr.', 'Disabilitiy Integr.'], ['Intercultural Edu.', 'Intercultural Edu.'], ['Body and Movement', 'Body and Movement'], ['Natural and Environment', 'Natural and Environment'], ['Scientific experience', 'Scientific experience'], ['Religious Education', 'Religious Education'], ['Theater Education', 'Theater Education']]), include_blank: true, placeholder: '' %>
+                </div>
+              </div>
+            <button ><span class="ion-ios-search"><i class="fas fa-search"></i></span></button>
+
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<br>
+
+
+
+
+
+
+
+
+
+
