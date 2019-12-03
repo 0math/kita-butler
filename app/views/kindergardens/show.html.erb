@@ -1,5 +1,9 @@
 <div class="d-flex p-5" >
   <div class="kita-show-info w-50">
+    <div class="d-flex" style=" color: #f57170;">
+      <h4>SELECTION</h4>
+      <hr class="kindergardens-line">
+    </div>
     <div class="d-flex">
            <!--<p id="notice"><%= notice %></p>-->
       <div>
@@ -23,6 +27,10 @@
         <%= render "shared/carousel", kindergarden: @kindergarden %>
    </div>
    <div class="kita-show-form w-50">
+     <div class="d-flex" style=" color: #f57170;">
+      <h4>APPLY</h4>
+      <hr class="kindergardens-line">
+    </div>
     <div>
      <% if current_user.kids.exists? %>
       <p>Please select one of your kids and we'll guide you through the application process for this Kindergarden</p>
@@ -61,7 +69,10 @@
     <div>
       <% if @my_reservation.present? %>
         <div class="col-sm-12">
-         <h3>Add a review</h3>
+          <div class="d-flex" style=" color: #f57170;">
+            <h4>REVIEW</h4>
+            <hr class="kindergardens-line">
+          </div>
           <%= simple_form_for [@my_reservation, @review] do |f| %>
            <%= f.input :rating, collection: 1..5 %>
            <%= f.input :content %>
