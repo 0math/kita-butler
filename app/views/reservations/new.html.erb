@@ -10,7 +10,6 @@
     <%= simple_form_for([@kindergarden, @reservation]) do |f| %>
       <%= f.association :kid, collection: kids_array %>
       <%= f.button :submit, class:"btn btn-primary" %>
-
     <% end %>
   <% end %>
 

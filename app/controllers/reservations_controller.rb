@@ -18,7 +18,6 @@ class ReservationsController < ApplicationController
     authorize @reservation
     if @reservation.save
       redirect_to dashboard_path
-      #raise
     else
       redirect_to new_kindergarden_reservation_path(@kindergarden)
     end
