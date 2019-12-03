@@ -57,6 +57,7 @@
         <tr>
           <th style="border: 1px solid #ddd; padding: 8px;">Child</th>
           <th style="border: 1px solid #ddd; padding: 8px;">Kita</th>
+          <th style="border: 1px solid #ddd; padding: 8px;">Phone</th>
           <th style="border: 1px solid #ddd; padding: 8px;">Status</th>
           <th style="border: 1px solid #ddd; padding: 8px;">First contacted</th>
           <th style="border: 1px solid #ddd; padding: 8px;">Last contacted</th>
@@ -76,18 +77,23 @@
               </td>
               <td style="border: 1px solid #ddd; padding: 8px;">
                 <% kid.reservations.each do |reservation| %>
+                <%= reservation.kindergarden.phone %>
+                <% end %>
+              </td>
+              <td style="border: 1px solid #ddd; padding: 8px;">
+                <% kid.reservations.each do |reservation| %>
                 <%= reservation.status %>
                 <% end %>
               </td>
               <td style="border: 1px solid #ddd; padding: 8px;">
                 <% kid.reservations.each do |reservation| %>
-                <%= reservation.created_at %>
+                <%= I18n.l(reservation.created_at, format: :long, locale: :'en-US') %>
                 <% end %>
               </td>
               <td style="border: 1px solid #ddd; padding: 8px;">
                 <% kid.reservations.each do |reservation| %>
-                <%= reservation.updated_at %>
-                <%= link_to "Contact again", reservation_path(reservation),
+                <%= I18n.l(reservation.updated_at, format: :long, locale: :'en-US') %>
+                <%= link_to "Resend application", reservation_path(reservation),
                 method: :patch,
                 data: {confirm: 'You are about to contact this Kindergarden again. Would you like to proceed?' },
                 class: "btn btn-primary" %>

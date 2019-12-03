@@ -21,7 +21,6 @@ class ReservationsController < ApplicationController
     else
       redirect_to new_kindergarden_reservation_path(@kindergarden)
     end
-
   end
 
   def update
