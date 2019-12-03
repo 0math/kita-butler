@@ -110,19 +110,23 @@
       <% end %>
     </div>
     <div class="col">
-      <% if user_signed_in? %>
-        <% if @kindergarden.is_available == true %>
-          <% if current_user.kids.exists? %>
-            <%=link_to "Apply", new_kindergarden_reservation_path(@kindergarden), class:"btn btn-primary" %>
+      <% if @kindergarden.is_available == true %>
+        <% if user_signed_in? %>
+          <% if @kindergarden.is_available == true %>
+            <% if current_user.kids.exists? %>
+              <% if !@declined_reservations.empty? || @all_reservations.empty? %>
+                <%= link_to "Apply", new_kindergarden_reservation_path(@kindergarden), class:"btn btn-primary" %>
+              <% end %>
+            <% else %>
+              <%= link_to "Add your kid first", new_kid_path, class:"btn btn-primary" %>
+            <% end %>
           <% else %>
-            <%= link_to "Add your kid first", new_kid_path, class:"btn btn-primary" %>
+            <%= render 'kids/notavailable' %>
+            <%= "Sorry, at the moment you cannot apply to this KiTa" %>
           <% end %>
         <% else %>
-          <%= render 'kids/notavailable' %>
-          <%= "Sorry, at the moment you cannot apply to this KiTa" %>
+          <%=link_to "Apply", new_kindergarden_reservation_path(@kindergarden), class:"btn btn-primary" %>
         <% end %>
-      <% else %>
-        <%=link_to "Apply", new_kindergarden_reservation_path(@kindergarden), class:"btn btn-primary" %>
       <% end %>
     </div>
   </div>
