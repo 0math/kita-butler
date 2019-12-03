@@ -5,6 +5,7 @@ class KindergardensController < ApplicationController
   def index
     @kindergardens = policy_scope(Kindergarden).geocoded
     if params[:query].present?
+
       @kindergardens = @kindergardens.search_by_name_and_address_and_language(params[:query])
       if @kindergardens.empty?
         flash[:alert] = "Sorry no KiTa matches your search."
@@ -35,7 +36,7 @@ class KindergardensController < ApplicationController
     end
     @kid = Kid.new
     @reservation = Reservation.new
-    @markers = [{ lat: @kindergarden.latitude, lng: @kindergarden.longitude }]
+    @markers = [{ lat: @kindergarden.latitude, lng: @kindergarden.longitude, infoWindow: render_to_string(partial: "info_window", locals: { kindergarden: @kindergarden }) }]
   end
 
   def filter_results(kindergardens)
@@ -65,7 +66,6 @@ class KindergardensController < ApplicationController
     @kindergardens
   end
 
-
   private
 
   def show_markers(kindergardens)
@@ -87,5 +87,3 @@ class KindergardensController < ApplicationController
     authorize @kindergarden
   end
 end
-
-
