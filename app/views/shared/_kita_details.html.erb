@@ -1,24 +1,15 @@
-<div class="d-flex">
+<div class="d-flex justify-content-between">
   <div>
-    <p>
-      <strong>Are there free available spots?</strong>
-      <br>
-     <%= @kindergarden.is_available %>
-    </p>
+    <h4><strong>Are there free available spots?</strong></h4>
+    <p><%= @kindergarden.is_available %></p>
   </div>
   <div>
-   <p>
-    <strong>Languages</strong>
-    <br>
-     <%= @kindergarden.language %>
-   </p>
+   <h4><strong>Languages</strong></h4>
+     <p><%= @kindergarden.language %></p>
   </div>
   <div>
-    <p>
-     <strong>Capacity</strong>
-     <br>
-      <%= @kindergarden.capacity %>
-    </p>
+    <h4><strong>Capacity</strong></h4>
+     <p><%= @kindergarden.capacity %></p>
   </div>
 </div>
 
