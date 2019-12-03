@@ -1,104 +1,37 @@
-    <div class="container py-3 my-1">
-    <div class="row text-center pb-1">
-        <div class="col-md-12">
-          </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <form action="/kindergardens" class="card-body">
-                  <input type="hidden" value="<%= params[:search_by_name_and_address_and_language] %>" name="search">
-                    <div class="row">
-                <div class="col-md-2">
-                    <div class="form-group ">
-                          <select id="inputState" class="form-control" name="opening_hours">
-                            <option selected>... Opening hours...</option>
-                            <option>06:00</option>
-                            <option>07:00</option>
-                            <option>08:00</option>
-                            <option>09:00</option>
-                            <option>10:00</option>
-                          </select>
-                        </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="form-group ">
-                          <select id="inputState" class="form-control" name="closing_hours">
-                            <option selected>... Closing hours...</option>
-                            <option>16:00</option>
-                            <option>17:00</option>
-                            <option>18:00</option>
-                            <option>19:00</option>
-                            <option>20:00</option>
-                          </select>
-                        </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="form-group ">
-                          <select id="inputState" class="form-control" name="size">
-                            <option selected>... Size...</option>
-                            <option >less than 50</option>
-                            <option >more than 50</option>
+<%= form_tag kindergardens_path, method: :get, class: "search-location mt-md-5" do %>
+  <div class="row justify-content-center">
+    <div class="col-lg-10 align-items-end">
+      <div class="form-group">
+        <div class="form-field">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search by name, language or location",
+            autocomplete: "off"
+            %>
+            <br>
+            <br>
+              <div class="container" display="flex" id="advanced_search" style="text-align-last: justify;">
+                <%= select_tag "Opening Hours", options_for_select([['06:00', 1], ['07:00', 2], ['08:00', 3], ['09:00', 4], ['10:00', 5]]) %>
+                <%= select_tag "Closing Hours", options_for_select([['16:00', 1], ['17:00', 2], ['18:00', 3], ['19:00', 4], ['20:00', 5]]) %>
+                <%= select_tag "Size", options_for_select([['less than 50', 1], ['more than 50', 2]]) %>
+                <%= select_tag "Age Structure", options_for_select([['Mixed ages', 1], ['Old homogenous', 2], ['Nest group', 3]]) %>
+                <%= select_tag "Educational System", options_for_select([['Emmy Picker', 1], ['Freinet', 2], ['Fröbel', 3], ['Montessory', 4], ['Open Work', 5], ['Reggio', 6], ['Situational', 7], ['Waldorf', 8]]) %>
+                <%= select_tag "Aesthetic Education", options_for_select([['Health', 1], ['Disabilitiy Integr.', 2], ['Intercultural Edu.', 3], ['Body and Movement', 4], ['Natural and Environment', 5], ['Scientific experience', 6], ['Religious Education', 7], ['Theater Education', 8]]) %>
+              </div>
+            <button ><span class="ion-ios-search"><i class="fas fa-search"></i></span></button>
 
-                          </select>
-                        </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="form-group ">
-                          <select id="inputState" class="form-control" name="age_structure">
-                            <option selected>... Age Structure...</option>
-                            <option >Mixed ages</option>
-                            <option >Old homogenous</option>
-                            <option >Nest group</option>
-                          </select>
-                        </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="form-group ">
-                          <select id="inputState" class="form-control" name="edu_system">
-                            <option selected>... Educational System...</option>
-                              <option >Emmy Picker</option>
-                              <option >Freinet</option>
-                              <option >Fröbel</option>
-                              <option >Montessory</option>
-                              <option >Open Work</option>
-                              <option >Reggio</option>
-                              <option >Situational</option>
-                              <option >Waldorf</option>
-                          </select>
-                        </div>
-                </div>
-                <div class="col-md-2">
-                    <div class="form-group ">
-                          <select id="inputState" class="form-control" name="aesthetic_edu" >
-                            <option selected>... Aesthetic Education...</option>
-                              <option >Health</option>
-                              <option >Disabilitiy Integr.</option>
-                              <option >Intercultural Edu.</option>
-                              <option >Body and Movement</option>
-                              <option >Natural and Environment</option>
-                              <option >Scientific experience</option>
-                              <option >Religious Education</option>
-                              <option >Theater Education</option>
-                          </select>
-                        </div>
-                </div>
-                <div class="col-md-2">
-                    <button type="submit" class="btn btn-dark">Advanced Search</button>
-
-                </div>
-            </div>
-                </form>
-            </div>
-
+            <% end %>
         </div>
+      </div>
     </div>
-</div>
+  </div>
+<br>
 
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
 
 
 

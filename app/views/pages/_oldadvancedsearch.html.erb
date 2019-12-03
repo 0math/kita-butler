@@ -1,0 +1,106 @@
+    <div class="container py-3 my-1">
+    <div class="row text-center pb-1">
+        <div class="col-md-12">
+          </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <form action="/kindergardens" class="card-body">
+                  <input type="hidden" value="<%= params[:query] %>" name="query">
+                    <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group ">
+                          <select id="inputState" placeholder='' class="form-control" name="opening_hours">
+                           <option disabled selected value="">Opening hours</option>
+                            <option>06:00</option>
+                            <option>07:00</option>
+                            <option>08:00</option>
+                            <option>09:00</option>
+                            <option>10:00</option>
+                          </select>
+                        </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group ">
+                          <select id="inputState" class="form-control" name="closing_hours">
+                            <option selected>... Closing hours...</option>
+                            <option>16:00</option>
+                            <option>17:00</option>
+                            <option>18:00</option>
+                            <option>19:00</option>
+                            <option>20:00</option>
+                          </select>
+                        </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group ">
+                          <select id="inputState" class="form-control" name="size">
+                            <option selected >... Size...</option>
+                            <option >less than 50</option>
+                            <option >more than 50</option>
+
+                          </select>
+                        </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group ">
+                          <select id="inputState" class="form-control" name="age_structure">
+                            <option selected >... Age Structure...</option>
+                            <option >Mixed ages</option>
+                            <option >Old homogenous</option>
+                            <option >Nest group</option>
+                          </select>
+                        </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group ">
+                          <select id="inputState" class="form-control" name="edu_system">
+                            <option selected>... Educational System...</option>
+                              <option >Emmy Picker</option>
+                              <option >Freinet</option>
+                              <option >Fröbel</option>
+                              <option >Montessory</option>
+                              <option >Open Work</option>
+                              <option >Reggio</option>
+                              <option >Situational</option>
+                              <option >Waldorf</option>
+                          </select>
+                        </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group ">
+                          <select id="inputState" class="form-control" name="aesthetic_edu" >
+                            <option selected>... Aesthetic Education...</option>
+                              <option >Health</option>
+                              <option >Disabilitiy Integr.</option>
+                              <option >Intercultural Edu.</option>
+                              <option >Body and Movement</option>
+                              <option >Natural and Environment</option>
+                              <option >Scientific experience</option>
+                              <option >Religious Education</option>
+                              <option >Theater Education</option>
+                          </select>
+                        </div>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-dark">Advanced Search</button>
+
+                </div>
+            </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+
+

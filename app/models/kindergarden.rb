@@ -8,6 +8,12 @@ class Kindergarden < ApplicationRecord
     using: {
       tsearch: { prefix: true, any_word: true }
     }
+
+  pg_search_scope :advanced_search,
+    against: [ :name, :address, :language, :age_structure, :size, :opening_hours, :closing_hours, :edu_system, :aesthetic_edu ],
+    using: {
+      tsearch: { prefix: true, any_word: true }
+    }
   # we don't validate kindergardens for now, as they are hardcoded by us
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
