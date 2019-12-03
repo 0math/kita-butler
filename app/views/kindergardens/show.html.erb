@@ -9,10 +9,11 @@
       <div>
         <h1><%= @kindergarden.name.upcase %></h1>
         <h4><%= @kindergarden.address %></h4>
-          <!-- description missing from the seeds-->
+          <p>KiTa-Description
+            <br>
+             a looooooooooooooooong text aboout offerings from KiTa side</p>
           <h4><%= @kindergarden.phone %></h4>
           <h4><%= @kindergarden.email %></h4>
-          <p>KiTa-Description</p>
       </div>
       <div id="map" style="width: 50%; height: 250px;"
         data-markers="<%= @markers.to_json %>"
@@ -63,7 +64,7 @@
            <%= f.input :secondary_language %>
           </div>
            <div class="form-actions">
-             <%= f.submit 'APPLY', class: "btn btn-white w-100" %>
+             <%= f.submit 'APPLY', class:"btn btn-white w-100" %>
            </div>
           <% end %>
         </div>
@@ -71,21 +72,21 @@
     </div>
     <div>
       <% if @my_reservation.present? %>
-        <div class="col-sm-12">
           <div class="d-flex" style=" color: #f57170;">
             <h4>REVIEW</h4>
             <hr class="kindergardens-line">
           </div>
+          <div class="form-pink-bg">
           <%= simple_form_for [@my_reservation, @review] do |f| %>
            <%= f.input :rating, collection: 1..5 %>
            <%= f.input :content %>
-           <%= f.submit class: "btn btn-white w-100"%>
+           <%= f.submit class:"btn btn-white w-100"%>
          <% end %>
          </div>
-         <% end %>
-      </div>
-     </div>
+      <% end %>
+     <div><%= link_to "Home Page", root_path, class:"btn btn-white" %></div>
+    </div>
    </div>
-   <%= render "shared/footer", kindergarden: @kindergarden %>
-  </div>
+ </div>
+<%= render "shared/footer", kindergarden: @kindergarden %>
 
