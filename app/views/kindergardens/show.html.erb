@@ -16,29 +16,11 @@
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       ></div>
     </div>
+        <hr>
         <%= render "shared/kita_details", kindergarden: @kindergarden %>
+        <hr>
         <%= render "shared/kita_reviews", kindergarden: @kindergarden %>
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-             <% image_tag "kita_interior" %>
-            </div>
-            <div class="carousel-item">
-             <% image_tag "kita_toys" %>
-            </div>
-            <div class="carousel-item">
-             <% image_tag "child" %>
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-           <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-           <span class="sr-only">Next</span>
-          </a>
-        </div>
+        <%= render "shared/carousel", kindergarden: @kindergarden %>
    </div>
    <div class="kita-show-form w-50">
     <div>
