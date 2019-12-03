@@ -1,7 +1,6 @@
 class FavouritesController < ApplicationController
 
   def create
-    # @kid = current_user.kids.first
     @user = current_user
     @kindergarden = Kindergarden.find(params[:kindergarden_id])
     @favourite = Favourite.new(user: @user, kindergarden: @kindergarden)

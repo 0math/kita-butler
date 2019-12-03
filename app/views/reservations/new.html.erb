@@ -1,4 +1,18 @@
 <div class="container">
   <h1>Form to apply</h1>
+
+  <% kids_array = @kids.map do |kid| %>
+    <% kid.first_name %>
+  <% end %>
+
+  <% if current_user.kids.exists? %>
+    <p>Please select one of your kids and we'll guide you through the application process for this Kindergarden</p>
+    <%= simple_form_for([@kindergarden, @reservation]) do |f| %>
+      <%= f.association :kid, collection: kids_array %>
+      <%= f.button :submit, class:"btn btn-primary" %>
+
+    <% end %>
+  <% end %>
+
   <%= link_to "Home Page", root_path, class:"btn btn-primary" %>
 </div>
