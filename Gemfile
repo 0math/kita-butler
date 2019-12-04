@@ -18,7 +18,11 @@ gem 'webpacker'
 gem 'dotenv-rails'
 gem 'cloudinary', '~> 1.9.1'
 gem 'geocoder'
+
+gem 'pg_search', '~> 2.3.0'
+
 gem 'rails-i18n', '~> 5.1'
+
 
 gem 'dotenv-rails', groups: [:development, :test]
 
