@@ -6,6 +6,10 @@
   margin-bottom: 20px;
   height: 330px;
   overflow: hidden;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #f57170;
+
 }
 
 .card-img {
@@ -23,7 +27,7 @@
   background: white;
   transition: all .3s ease-in-out;
   transform: translateY(220px);
-  
+
   p {
     margin: 0 !important;
   }
