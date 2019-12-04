@@ -10,23 +10,23 @@
     <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2))"></div>
   <%end%>
   <div class="card-description">
-    <span><h2><%= link_to kindergarden.name, kindergarden_path(kindergarden)%></h2></span>
+    <h2><%=kindergarden.name%></h2>
     <i><%= kindergarden.language %></i>
     <address><p style="color: rgba(0,0,0,0.3)"><strong><%= kindergarden.address %></p></strong></address>
-    <p style="color: rgba(0,0,0,0.6);"><%= kindergarden.description %></p>
-    <div>
-      <%=link_to "More details", kindergarden_path(kindergarden.id) %>
+    <p style="color: rgba(0,0,0,0.6);"><%= truncate(kindergarden.description, length: 160, separator: ' ') %></p>
+    <div class="d-flex justify-content-between">
+      <%=link_to "More details", kindergarden_path(kindergarden.id), class: "btn btn-secondary" %>
       <% if kindergarden.is_available == true %>
         <% if user_signed_in? %>
           <% if current_user.kids.exists? %>
             <% if !@declined_reservations.empty? || @all_reservations.empty? %>
-              <%= link_to "Apply", new_kindergarden_reservation_path(kindergarden) %>
+              <%= link_to "Apply", new_kindergarden_reservation_path(kindergarden), class: "btn btn-primary" %>
             <% end %>
           <% else %>
             <%= link_to "Add your kid first", new_kid_path %>
           <% end %>
         <% else %>
-          <%=link_to "Apply", new_kindergarden_reservation_path(kindergarden) %>
+          <%=link_to "Apply", new_kindergarden_reservation_path(kindergarden),  class: "btn btn-primary" %>
         <% end %>
       <% end %>
     </div>

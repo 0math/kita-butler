@@ -4,7 +4,9 @@
       <h4>SEARCH</h4>
       <hr class="kindergardens-line">
     </div>
-      <%= render 'pages/advancedsearch' %>
+      <div class="index-search">
+        <%= render 'pages/advancedsearch' %>
+      </div>
       <h1>Kitas in Berlin</h1>
     <div>
         <div class="grid-container" >
@@ -17,15 +19,15 @@
   </div>
   <div class="kita-index-flex-right">
     <div
-      id="map"
+      id="map" style="height: 100vh"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
     </div>
     <div><%= link_to "Home Page", root_path, class:"btn btn-white" %></div>
   </div>
 </div>
 <%= render "shared/footer", kindergarden: @kindergarden %>
-
 
 
 

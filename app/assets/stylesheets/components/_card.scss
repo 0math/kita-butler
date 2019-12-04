@@ -4,11 +4,33 @@
   position: relative;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
   margin-bottom: 20px;
-  height: 330px;
+  height: 380px;
   overflow: hidden;
   border-style: solid;
   border-width: 1px;
   border-color: #f57170;
+  h2 {
+    color: #f57170;
+    margin-top: 12px;
+    margin-bottom: 0px;
+  }
+  .btn-primary {
+    background-color: #f57170;
+    color: white;
+    font-size: 12px;
+    width: 120px;
+    margin-top: 16px;
+  }
+
+
+  .btn-secondary {
+    border: 1px solid #f57170;
+    background-color: white;
+    color: #f57170;
+    font-size: 12px;
+    width: 120px;
+    margin-top: 16px;
+  }
 
 }
 
