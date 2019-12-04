@@ -1,0 +1,46 @@
+.carousel-img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.kindergardens-line {
+  border-top: 1px solid #f57170;;
+  width: 90%;
+  margin-left: 13px;
+  margin-right: 13px;
+ }
+
+.form-pink-bg {
+  background-color: $primary;
+  color: white;
+  padding: 16px;
+  margin-bottom: 40px;
+}
+.btn-white {
+  background-color: white;
+  color: $primary;
+}
+.btn-white:hover {
+  background-color: $primary;
+  color: white;
+  border: white 1px solid;
+}
+
+.kita-show-info, .kita-show-form {
+  padding: 40px;
+}
+
+.kita-show-info h1 {
+  letter-spacing: 1px;
+  font-size: 2em;
+}
+
+.kita-show-details {
+  display: flex;
+  justify-content: space-between;
+  h4 {
+    color: $primary
+  }
+}
+

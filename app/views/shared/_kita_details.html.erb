@@ -1,0 +1,24 @@
+<div class="kita-show-details">
+  <div>
+    <h4><strong>Are there free available spots?</strong></h4>
+    <p><%= @kindergarden.is_available %></p>
+  </div>
+  <div>
+   <h4><strong>Languages</strong></h4>
+     <p><%= @kindergarden.language %></p>
+  </div>
+  <div>
+    <h4><strong>Capacity</strong></h4>
+     <p><%= @kindergarden.capacity %></p>
+  </div>
+<div>
+  <% if @favourite.nil? %>
+    <p>
+      <strong><%= link_to '<i class="fas fa-heart"></i>'.html_safe, kindergarden_favourites_path(@kindergarden),
+        method: :post,
+        data: {confirm: 'Adding to favourites' } %></strong>
+    </p>
+  <% end %>
+ </div>
+</div>
+
