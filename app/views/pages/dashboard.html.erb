@@ -1,4 +1,15 @@
 <div class="container">
+
+  <div class="container" id="favourite-kindergardens">
+    <h2 style="margin-top: 30px;">My favourite kindergardens</h2>
+    <div class="row">
+      <% @favourites.each do |favourite| %>
+        <div class="col-4">
+          <%= render "shared/favourite_card", kindergarden: favourite.kindergarden %>
+        </div>
+      <% end %>
+    </div>
+  </div>
   <div class="container" id="my-kids">
     <h2>My kids</h2>
     <table style="width: 100%;">
@@ -25,32 +36,9 @@
   <div class="container" style="margin-top: 30px;">
     <%= link_to "Add kid", new_kid_path(current_user), class:"btn btn-primary" %>
   </div>
-  <div class="container" id="favourite-kindergardens">
-    <h2 style="margin-top: 30px;">My Kindergardens</h2>
-    <h4 style="margin-top: 10px;">My favourite kindergadens</h4>
-    <table style="width: 100%;">
-      <thead>
-        <tr>
-          <th style="border: 1px solid #ddd; padding: 8px;">Kita</th>
-          <th style="border: 1px solid #ddd; padding: 8px;">Address</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @favourites.each do |favourite| %>
-        <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">
-            <%= link_to favourite.kindergarden.name, kindergarden_path(favourite.kindergarden) %>
-          </td>
-          <td style="border: 1px solid #ddd; padding: 8px;">
-            <%= favourite.kindergarden.address %>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+
   <div class="container" id="all-kindergardens">
-    <h4 style="margin-top: 30px;">Kindergardens I applied to</h4>
+    <h2 style="margin-top: 30px;">Kindergardens I applied to</h2>
     <table style="width: 100%;">
       <thead>
         <tr>
