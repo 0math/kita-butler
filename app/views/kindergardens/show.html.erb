@@ -30,7 +30,7 @@
     </div>
     <div>
      <% if user_signed_in? && @kindergarden.is_available == true %>
-      <% if current_user.kids.exists? %>
+      <% if current_user.kids.exists? && !@has_kid_in_kita %>
       <h4 style="font-weight: lighter;">Please select one of your kids and we'll guide you through the application process for this Kindergarden</h4>
        <div class="form-pink-bg">
         <%= simple_form_for([@kindergarden, @reservation]) do |f| %>
@@ -38,6 +38,8 @@
         <%= f.button :submit, class:"btn btn-white w-100" %>
       <% end %>
       </div>
+      <% elsif @has_kid_in_kita %>
+        <h4 style=" color: #f57170;">You cannot apply with the same kid</h4>
       <% else %>
       <div class="form-pink-bg">
       <%= simple_form_for(@kid) do |f| %>
@@ -71,7 +73,7 @@
     </div>
     <div>
     <% if @my_reservation.nil? %>
-      <h4 style="font-weight: lighter;">You will be able to leave a review once you have an accepted reservation in this kindergarden</h4>
+      <h4 style="font-weight: lighter; letter-spacing: 1px;">You will be able to leave a review once you have an accepted reservation in this kindergarden</h4>
     <% else %>
       <% if @kindergarden.reviews.empty? %>
         <h3>Be the first to leave a review</h3>

@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :kids
   has_many :reservations, through: :kids
   has_many :favourites
+
 end
