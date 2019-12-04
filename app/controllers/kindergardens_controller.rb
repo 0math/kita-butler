@@ -13,6 +13,7 @@ class KindergardensController < ApplicationController
       else
         @kindergardens = filter_results(@kindergardens)
         @markers = show_markers(@kindergardens)
+        session[:search_results] = request.url
           if @kindergardens.empty?
             flash[:alert] = "Sorry no KiTa matches your search."
             redirect_to(root_path)
@@ -21,11 +22,11 @@ class KindergardensController < ApplicationController
     elsif params[:query].blank?
       @kindergardens = filter_results(@kindergardens)
       @markers = show_markers(@kindergardens)
+      session[:search_results] = request.url
     else
       flash[:alert] = "Sorry no KiTa matches your search."
       redirect_to(root_path)
     end
-
   end
 
   def show
