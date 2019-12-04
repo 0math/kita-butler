@@ -11,9 +11,9 @@
             <br>
             <br>
               <div class="d-flex"  id="advanced_search" >
-                <div class="openinghours">
+                <div>
                   <%= label_tag 'opening_hours', 'Opening Hours' %>
-                  <%= select_tag "opening_hours", options_for_select([['06:00', '06:00'], ['07:00', '07:00'], ['08:00', '08:00'], ['09:00', '09:00'], ['10:00', '10:00']]), include_blank: true, placeholder: '' %>
+                  <%= select_tag "opening_hours", options_for_select([['06:00', '06:00'], ['07:00', '07:00'], ['08:00', '08:00'], ['09:00', '09:00'], ['10:00', '10:00']]), class: 'openinghours', include_blank: true, placeholder: '' %>
                 </div>
                 <div >
                 <%= label_tag 'closing_hours', 'Closing Hours' %>

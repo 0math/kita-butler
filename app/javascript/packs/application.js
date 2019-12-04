@@ -74,5 +74,7 @@ var OnePageNav = function() {
 OnePageNav();
 initMapbox();
 
-const element = document.querySelector('.js-choice');
-const choices = new Choices(element);
+const element = document.querySelector('.openinghours');
+const choices = new Choices(element, {
+  items: [],
+});
