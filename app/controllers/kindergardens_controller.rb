@@ -36,6 +36,11 @@ class KindergardensController < ApplicationController
       @declined_reservations = current_user.reservations.where(kindergarden_id: @kindergarden.id, status: 'Declined')
       @favourite = current_user.favourites.where(kindergarden_id: @kindergarden.id).first
       @review = Review.new
+      if  Reservation.where(kindergarden_id: @kindergarden.id).empty?
+        @has_kid_in_kita = false
+      else
+        @has_kid_in_kita = Reservation.where(kindergarden_id: @kindergarden.id).last.kid.user == current_user
+      end
     end
     @kid = Kid.new
     @reservation = Reservation.new
