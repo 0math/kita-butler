@@ -75,7 +75,13 @@
          <strong>Reviews</strong>
         </p>
       </div>
-      <div><%= link_to "Home Page", root_path, class:"btn btn-primary" %></div>
+      <div class="d-flex">
+        <div><%= link_to "Home Page", root_path, class:"btn btn-primary" %></div>
+
+
+       <div><%=link_to "Back to search results", session[:search_results], class:"btn btn-primary" %></div>
+
+     </div>
       </div>
        <div
          id="map"
