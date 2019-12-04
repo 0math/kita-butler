@@ -20,13 +20,13 @@
         <% if user_signed_in? %>
           <% if current_user.kids.exists? %>
             <% if !@declined_reservations.empty? || @all_reservations.empty? %>
-              <%= link_to "Apply", new_kindergarden_reservation_path(favourite.kindergarden) %>
+              <%= link_to "Apply", new_kindergarden_reservation_path(kindergarden) %>
             <% end %>
           <% else %>
             <%= link_to "Add your kid first", new_kid_path %>
           <% end %>
         <% else %>
-          <%=link_to "Apply", new_kindergarden_reservation_path(favourite.kindergarden) %>
+          <%=link_to "Apply", new_kindergarden_reservation_path(kindergarden) %>
         <% end %>
       <% end %>
     </div>

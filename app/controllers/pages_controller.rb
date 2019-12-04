@@ -8,5 +8,7 @@ class PagesController < ApplicationController
   def dashboard
     @kids = current_user.kids
     @favourites = current_user.favourites
+    @declined_reservations = current_user.reservations.where(kindergarden_id: @kindergarden, status: 'Declined')
+    @all_reservations = current_user.reservations.where(kindergarden_id: @kindergarden)
   end
 end
