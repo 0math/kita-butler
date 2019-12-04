@@ -10,6 +10,7 @@
         <div class="grid-container" >
           <% @kindergardens.each do |kindergarden| %>
             <%= render "shared/kita_card", kindergarden: kindergarden %>
+
           <% end %>
         </div>
     </div>
@@ -24,6 +25,7 @@
   </div>
 </div>
 <%= render "shared/footer", kindergarden: @kindergarden %>
+
 
 
 

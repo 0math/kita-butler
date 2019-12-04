@@ -16,13 +16,15 @@
 		span{
 			color: $secondary;
 		}
-		@include media-breakpoint-down(md){
+		@include media-breakpoint-down(md)
+    {
 			color: $white;
 		}
 	}
 
   .navbar-nav {
-		@include media-breakpoint-down(md){
+		@include media-breakpoint-down(md)
+    {
 			padding-bottom: 10px;
 		}
 		> .nav-item {
@@ -38,7 +40,8 @@
 					color: $primary;
 				}
 				opacity: 1!important;
-				@include media-breakpoint-down(md){
+				@include media-breakpoint-down(md)
+        {
 					padding-left: 0;
 					padding-right: 0;
 					padding-bottom: 0;
@@ -108,7 +111,8 @@
 					color: $primary;
 				}
 			}
-			@include media-breakpoint-down(md){
+			@include media-breakpoint-down(md)
+      {
 				&.active {
 					> a {
 						color: $primary;

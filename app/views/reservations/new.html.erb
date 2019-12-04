@@ -1,13 +1,14 @@
 <div class="container">
-  <h1>Form to apply</h1>
-
-  <% if current_user.kids.exists? %>
-    <p>Please select one of your kids and we'll guide you through the application process for this Kindergarden</p>
-    <%= simple_form_for([@kindergarden, @reservation]) do |f| %>
+  <div class="form-pink-bg">
+   <h1>Form to apply</h1>
+    <% if current_user.kids.exists? %>
+     <p>Please select one of your kids and we'll guide you through the application process for this Kindergarden</p>
+      <%= simple_form_for([@kindergarden, @reservation]) do |f| %>
       <%= f.association :kid, collection: current_user.kids, label_method: :first_name %>
-      <%= f.button :submit, class:"btn btn-primary" %>
+      <%= f.button :submit, class:"btn btn-white w-100" %>
+      <% end %>
     <% end %>
-  <% end %>
-
-  <%= link_to "Home Page", root_path, class:"btn btn-primary" %>
+    <hr>
+   <%= link_to "Home Page", root_path, class:"btn btn-white w-100" %>
+  </div>
 </div>
