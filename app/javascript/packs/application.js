@@ -2,6 +2,7 @@ import "bootstrap";
 import "jquery";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
+import Choices from 'choices.js';
 
 var jumboHeight = $('.jumbotron').outerHeight();
 function parallax(){
@@ -73,3 +74,5 @@ var OnePageNav = function() {
 OnePageNav();
 initMapbox();
 
+const element = document.querySelector('.js-choice');
+const choices = new Choices(element);

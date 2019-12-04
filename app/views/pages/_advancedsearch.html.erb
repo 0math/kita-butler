@@ -1,6 +1,5 @@
 <%= form_tag kindergardens_path, method: :get, class: "search-location mt-md-5" do %>
-  <div class="row justify-content-center">
-    <div class="col-lg-10 align-items-end">
+
       <div class="form-group">
         <div class="form-field">
           <%= text_field_tag :query,
@@ -11,8 +10,8 @@
             %>
             <br>
             <br>
-              <div class="d-flex"  id="advanced_search" style="text-align-last: justify;">
-                <div >
+              <div class="d-flex"  id="advanced_search" >
+                <div class="openinghours">
                   <%= label_tag 'opening_hours', 'Opening Hours' %>
                   <%= select_tag "opening_hours", options_for_select([['06:00', '06:00'], ['07:00', '07:00'], ['08:00', '08:00'], ['09:00', '09:00'], ['10:00', '10:00']]), include_blank: true, placeholder: '' %>
                 </div>
@@ -42,9 +41,7 @@
             <% end %>
         </div>
       </div>
-    </div>
-  </div>
-<br>
+
 
 
 
