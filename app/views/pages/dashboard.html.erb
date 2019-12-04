@@ -40,7 +40,7 @@
         <% @favourites.each do |favourite| %>
         <tr>
           <td style="border: 1px solid #ddd; padding: 8px;">
-            <%= favourite.kindergarden.name %>
+            <%= link_to favourite.kindergarden.name, kindergarden_path(favourite.kindergarden) %>
           </td>
           <td style="border: 1px solid #ddd; padding: 8px;">
             <%= favourite.kindergarden.address %>
