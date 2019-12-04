@@ -1,10 +1,16 @@
 <div class="container-fluid">
   <%= render 'pages/advancedsearch' %>
-  <h1> Available KiTas </h1>
-  <div class="row">
-  <p> Filter </p>
-  </div>
-  <div class="row">
+
+
+
+
+<div class="d-flex" >
+  <div class="kita-show-info w-50">
+    <div class="d-flex" style=" color: #f57170;">
+      <h4>SEARCH</h4>
+      <h1>Kitas in Berlin</h1>
+
+        <div class="row">
     <div class="col-8">
       <div class="row">
         <% @kindergardens.each do |kindergarden| %>
@@ -22,6 +28,33 @@
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
-  </div>
- </div>
+  </div><!-- kitas cards -->
+
+    </div>
+    <div class="d-flex justify-content-between">
+      <div class="d-flex" style=" color: #f57170;">
+       <!-- map    </div> -->
+        <div class="col-4">
+          <div
+            id="map"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
+        <!-- map -->
+      </div>
+    </div>
+    <div>
+      <div><%= link_to "Home Page", root_path, class:"btn btn-white" %></div>
+      </div>
+    </div>
+
+
+</div>
 <%= render "shared/footer", kindergarden: @kindergarden %>
+
+
+
+
+
+
