@@ -10,10 +10,10 @@
     <div class="card-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2))"></div>
   <%end%>
   <div class="card-description">
-    <span><%= link_to kindergarden.name, kindergarden_path(kindergarden)%></span>
+    <span><h2><%= link_to kindergarden.name, kindergarden_path(kindergarden)%></h2></span>
     <i><%= kindergarden.language %></i>
-    <address><%= kindergarden.address %></address>
-    <p><%= kindergarden.description %></p>
+    <address><p style="color: rgba(0,0,0,0.3)"><strong><%= kindergarden.address %></p></strong></address>
+    <p style="color: rgba(0,0,0,0.6);"><%= kindergarden.description %></p>
     <div>
       <%=link_to "More details", kindergarden_path(kindergarden.id) %>
       <% if kindergarden.is_available == true %>
