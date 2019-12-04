@@ -34,3 +34,25 @@ h1, h2, h3 {
 .container{
 	max-width: 1250px;
 }
+
+#wrapper {
+  display: flex;
+  padding: 40px;
+}
+
+.kita-index-flex-right {
+  width: 40%;
+}
+
+.kita-index-flex-left {
+  width: 60%;
+}
+
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 10px;
+  grid-gap: 10px;
+}
