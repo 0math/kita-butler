@@ -7,14 +7,13 @@
         <% @kindergardens.each do |kindergarden| %>
           <div class="col-4">
             <%= render "shared/kita_card", kindergarden: kindergarden %>
-
           </div>
         <% end %>
       </div>
     </div>
     <div class="col-4">
       <div
-        id="map"
+        id="map" style="height: 100vh"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>

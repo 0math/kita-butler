@@ -16,13 +16,15 @@
 		span{
 			color: $secondary;
 		}
-		@include media-breakpoint-down(md){
+		@include media-breakpoint-down(md)
+    {
 			color: $white;
 		}
 	}
 
   .navbar-nav {
-		@include media-breakpoint-down(md){
+		@include media-breakpoint-down(md)
+    {
 			padding-bottom: 10px;
 		}
 		> .nav-item {
