@@ -25,6 +25,7 @@
 
 .section-title {
   position: relative;
+  overflow: hidden;
 
   &:after {
     content: '';
