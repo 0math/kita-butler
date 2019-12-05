@@ -1,35 +1,46 @@
+<html>
+  <head>
+    <title>Kita Butler</title>
+    <meta name="description" content="Kita Butler is the best service for finding kindergarden for your kids. Fast and effecietnt!">
+    <meta charset="utf-8">
+    <meta property="og:title" content="Kita Butler - best for finding kindergardens">
+    <meta property="og:image" content="kita1.jpeg">
+    <meta property="og:description" content="Kita Butler is the best service for finding kindergarden for your kids. Fast and effecietnt!">
+    <meta property="og:site_name" content="Kita Butler">
+  </head>
+  <body>
+    <div id="wrapper" style=" color: #f57170;">
+      <div class="kita-index-flex-left">
+        <div class="d-flex" style=" color: #f57170;">
+          <h4>SEARCH</h4>
+          <hr class="kindergardens-line">
 
-<div id="wrapper" style=" color: #f57170;">
-  <div class="kita-index-flex-left">
-    <div class="d-flex" style=" color: #f57170;">
-      <h4>SEARCH</h4>
-      <hr class="kindergardens-line">
-
-    </div>
-      <div class="index-search">
-        <%= render 'pages/advancedsearch' %>
-      </div>
-      <h1>Kitas in Berlin</h1>
-    <div>
-        <div class="grid-container" >
-          <% @kindergardens.each do |kindergarden| %>
-            <%= render "shared/kita_card", kindergarden: kindergarden %>
-
-          <% end %>
         </div>
-    </div>
-  </div>
-  <div class="kita-index-flex-right">
-    <div
-      id="map" style="height: 100vh"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          <div class="index-search">
+            <%= render 'pages/advancedsearch' %>
+          </div>
+          <h1>Kitas in Berlin</h1>
+        <div>
+            <div class="grid-container" >
+              <% @kindergardens.each do |kindergarden| %>
+                <%= render "shared/kita_card", kindergarden: kindergarden %>
 
-    </div>
-    <div><%= link_to "Home Page", root_path, class:"btn btn-white" %></div>
-  </div>
-</div>
-<%= render "shared/footer", kindergarden: @kindergarden %>
+              <% end %>
+            </div>
+        </div>
+      </div>
+      <div class="kita-index-flex-right">
+        <div
+          id="map" style="height: 100vh"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 
+        </div>
+        <div><%= link_to "Home Page", root_path, class:"btn btn-white" %></div>
+      </div>
+    </div>
+    <%= render "shared/footer", kindergarden: @kindergarden %>
+  </body>
+</html>
 
 
