@@ -2,6 +2,8 @@ import "bootstrap";
 import "jquery";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
+import "select2";
+import "select2/dist/css/select2.css";
 
 var jumboHeight = $('.jumbotron').outerHeight();
 function parallax(){
@@ -72,4 +74,10 @@ var OnePageNav = function() {
 };
 OnePageNav();
 initMapbox();
+
+
+document.querySelectorAll(".advanced_search").forEach((inputField) => {
+  $(inputField).select2({width: "140px"});
+})
+
 
