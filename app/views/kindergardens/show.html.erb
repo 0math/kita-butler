@@ -40,8 +40,8 @@
           <hr class="kindergardens-line">
         </div>
         <div>
-         <% if user_signed_in? && @kindergarden.is_available == true %>
-          <% if current_user.kids.exists? && !@has_kid_in_kita %>
+         <% if user_signed_in? && @kindergarden.is_available %>
+          <% if current_user.kids.exists? && !@kids_with_no_reservation.empty? %>
           <h4 style="font-weight: lighter;">Please select one of your kids and we'll guide you through the application process for this Kindergarden</h4>
            <div class="form-pink-bg">
             <%= simple_form_for([@kindergarden, @reservation]) do |f| %>
@@ -49,9 +49,7 @@
             <%= f.button :submit, class:"btn btn-white w-100" %>
           <% end %>
           </div>
-          <% elsif @has_kid_in_kita %>
-            <h4 style=" color: #f57170;">You cannot apply with the same kid</h4>
-          <% else %>
+          <% elsif @current_user.kids.empty? %>
           <div class="form-pink-bg">
           <%= simple_form_for(@kid) do |f| %>
             <%= f.error_notification %>
@@ -80,16 +78,22 @@
               <% end %>
             </div>
           <% end %>
+          <% if @kids_with_no_reservation.empty? %>
+          <h4 style=" color: #f57170;">All of your kids have already applied to this Kindergarden</h4>
+            <% end %>
          <% end %>
         </div>
         <div>
-        <% if @my_reservation.nil? %>
-          <h4 style="font-weight: lighter; letter-spacing: 1px;">You will be able to leave a review once you have an accepted reservation in this kindergarden</h4>
-        <% else %>
-          <% if @kindergarden.reviews.empty? %>
-            <h3>Be the first to leave a review</h3>
-          <% end %>
+        <% if @my_reservation.empty? && @kindergarden.is_available %>
+          <h4 style="font-weight: lighter; letter-spacing: 1px;">You will be able to leave a review once the kindergarden has accepted your application</h4>
         <% end %>
+        <% if @kindergarden.reviews.empty? && !@my_reservation.empty? %>
+            <h3>Be the first to leave a review</h3>
+        <% end %>
+        <% unless @kindergarden.is_available %>
+          <h4 style="font-weight: lighter; letter-spacing: 1px;">This Kindergarden is already full of happy toddlers. Please, check again later.</h4>
+        <% end %>
+
           <% if @my_reservation.present? %>
               <div class="d-flex" style=" color: #f57170;">
                 <h4>REVIEW</h4>
