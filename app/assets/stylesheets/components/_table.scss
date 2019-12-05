@@ -1,5 +1,28 @@
 .table-dashboard {
+  padding: 0 !important;
   font-size: 15px;
   color: rgba(0, 0, 0, 0.4);
   border-bottom: 1px solid #ddd;
+
+  .table-item {
+    display: block;
+    padding: 8px;
+    margin-bottom: 12px;
+  }
+
+  .table-item:not(:last-of-type) {
+    border-bottom: 1px solid #ddd;
+  }
+
+  .table-item:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.dashboard-table {
+  tr .table-dashboard:first-of-type {
+    vertical-align: top;
+    line-height: 63px;
+    color: black;
+  }
 }
