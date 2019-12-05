@@ -16,6 +16,7 @@
     <p style="color: rgba(0,0,0,0.6);"><%= truncate(kindergarden.description, length: 100, separator: ' ') %></p>
     <div class="d-flex justify-content-between">
       <%=link_to "More details", kindergarden_path(kindergarden.id), class: "btn btn-secondary" %>
+
       <% if kindergarden.is_available == true %>
         <% if user_signed_in? %>
           <% if current_user.kids.exists? %>

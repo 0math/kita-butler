@@ -7,22 +7,39 @@
   .table-item {
     display: block;
     padding: 8px;
-    margin-bottom: 12px;
+    height: 50px;
+    margin-bottom: 0;
   }
 
   .table-item:not(:last-of-type) {
     border-bottom: 1px solid #ddd;
   }
 
-  .table-item:last-of-type {
-    margin-bottom: 0;
+  i {
+    font-style: normal;
+  }
+  .accepted {
+    color: green;
+  }
+
+  .pending {
+    color: blue;
+  }
+
+  .declined {
+    color: red;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 145px;
   }
 }
 
 .dashboard-table {
   tr .table-dashboard:first-of-type {
     vertical-align: top;
-    line-height: 63px;
+    line-height: 50px;
     color: black;
   }
 }

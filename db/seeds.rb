@@ -1,4 +1,5 @@
 puts "Destroy previous Kitas"
+Review.destroy_all
 Reservation.destroy_all
 Kindergarden.destroy_all
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
