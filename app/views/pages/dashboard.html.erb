@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="container" id="all-kindergardens" style="margin-bottom: 30px;">
+  <div class="container dashboard-section" id="all-kindergardens" style="margin-bottom: 30px;">
     <div class="section-title" style=" color: #f57170;">
       <h4>My applications</h4>
     </div>
@@ -40,7 +40,13 @@
               <td class="table-dashboard">
                 <% kid.reservations.each do |reservation| %>
                   <div class="table-item">
-                    <%= reservation.status %>
+                    <% if reservation.status == "Accepted" %>
+                      <i class="accepted"><%= reservation.status %></i>
+                    <% elsif reservation.status == "Pending"%>
+                      <i class="pending"><%= reservation.status %></i>
+                    <% elsif reservation.status == "Declined"%>
+                      <i class="declined"><%= reservation.status %></i>
+                    <% end %>
                   </div>
                 <% end %>
               </td>
@@ -62,7 +68,7 @@
                 <% kid.reservations.each do |reservation| %>
                   <div class="table-item">
                     <% if reservation.status  == 'Accepted' %>
-                      <%= link_to "Leave a review", kindergarden_path(reservation.kindergarden), class: "btn btn-primary" %>
+                      <%= link_to "Leave a review", kindergarden_path(reservation.kindergarden), class: "btn btn-secondary" %>
                     <% elsif reservation.status  == 'Pending' %>
                       <%= link_to "Resend application", reservation_path(reservation),
                       method: :patch,
@@ -73,6 +79,8 @@
                         <%= f.association :kid, collection: current_user.kids, as: :hidden %>
                         <%= f.button :submit, class:"btn btn-primary" %>
                       <% end %>
+                    <% else %>
+                      Already resent
                     <% end %>
                   </div>
                 <% end %>
@@ -84,45 +92,40 @@
     </table>
   </div>
 
-  <div class="container" id="favourite-kindergardens">
+  <div class="container dashboard-section" id="my-kids">
+    <div class="section-title" style=" margin-top: 15px; color: #f57170;">
+      <h4>My kids</h4>
+    </div>
+    <div class="row kid-сards">
+      <% current_user.kids.each do |kid| %>
+        <div class="col-3 kid-card">
+          <%= link_to edit_kid_path(kid) do %>
+            <span><%= kid.first_name %> <%= kid.last_name %></span>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="col-3 kid-card kid-card-add">
+        <%= link_to new_kid_path(current_user) do %>
+          <span>Add kid <i class="far fa-plus-square"></i></span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="container dashboard-section" id="favourite-kindergardens">
     <div class="section-title" style=" color: #f57170;">
       <h4>My favourite kindergardens</h4>
     </div>
     <div class="row">
-      <% @favourites.each do |favourite| %>
-        <div class="col-4">
-          <%= render "shared/favourite_card", kindergarden: favourite.kindergarden %>
-        </div>
+      <% if !@favourites.empty? %>
+        <% @favourites.each do |favourite| %>
+          <div class="col-3">
+            <%= render "shared/kita_card", kindergarden: favourite.kindergarden %>
+          </div>
+        <% end %>
       <% end %>
     </div>
-  </div>
-  <div class="container" id="my-kids">
-    <div class="section-title" style=" margin-top: 15px; color: #f57170;">
-      <h4>My kids</h4>
-    </div>
-    <table style="width: 100%;">
-      <thead>
-        <tr>
-          <th class="table-dashboard" style="padding: 8px;">First name</th>
-          <th class="table-dashboard" style="padding: 8px;">Last name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% current_user.kids.each do |kid| %>
-        <tr>
-          <td class="table-dashboard" style="padding: 8px;">
-            <%= link_to kid.first_name, edit_kid_path(kid) %>
-          </td>
-          <td class="table-dashboard" style="padding: 8px;">
-            <%= kid.last_name %>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-  <div class="container" style="margin-top: 10px; margin-bottom: 30px;">
-    <%= link_to "Add kid", new_kid_path(current_user), class:"btn btn-primary" %>
   </div>
 </div>
 <%= render "shared/footer", kindergarden: @kindergarden %>

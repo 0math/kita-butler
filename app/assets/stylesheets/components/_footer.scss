@@ -19,3 +19,7 @@ ul.social-buttons li a {
 ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons li a:hover {
   background-color: $primary;
 }
+
+footer {
+  .list-unstyled{margin-bottom: 0;}
+}

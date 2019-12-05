@@ -1,0 +1,54 @@
+.dashboard-section {
+  margin-bottom: 80px !important;
+}
+
+.kid-сards {
+  margin: 0;
+
+  .kid-card {
+    padding: 8px 12px;
+    margin-right: 30px;
+    border: 1px solid #f57170;
+    font-family: 'Roboto';
+    border-radius: 4px;
+  }
+
+  .kid-card-add {
+    background-color: #f57170;
+    font-weight: 600px;
+
+    a {
+      color: white;
+
+      span {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        .far {
+          font-size: 21px;
+        }
+      }
+    }
+  }
+}
+
+
+.btn-primary {
+  font-size: 12px;
+  color: white !important;
+}
+
+.btn-secondary {
+  border: 1px solid #f57170;
+  background-color: white;
+  color: #f57170;
+  font-size: 12px;
+
+  &:hover {
+    background-color: #f57170;
+    color: white;
+    border-color: #f57170;
+  }
+}
