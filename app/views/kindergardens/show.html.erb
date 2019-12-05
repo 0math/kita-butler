@@ -83,6 +83,20 @@
          <% end %>
         </div>
         <div>
+          <ul class="list-group">
+           <% @kindergarden.reviews.each do |review| %>
+             <li class="list-group-item d-flex justify-content-between align-items-center">
+               <span class="badge badge-primary badge-pill">
+                 <% counter = 0 %>
+                 <% 5.times do %>
+                  <i class="fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+                  <% counter += 1 %>
+                 <% end %>
+               </span>
+               <%= review.content %>
+             </li>
+            <% end %>
+          </ul>
         <% if @my_reservation.nil? %>
           <h4 style="font-weight: lighter; letter-spacing: 1px;">You will be able to leave a review once you have an accepted reservation in this kindergarden</h4>
         <% else %>
