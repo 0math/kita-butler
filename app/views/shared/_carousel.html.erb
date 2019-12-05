@@ -1,13 +1,19 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <%= image_tag "kita_interior", class: "carousel-img" %>
+      <%= image_tag "#{@kindergarden.name.gsub(/\s+/, "")}01", class: "carousel-img" %>
     </div>
     <div class="carousel-item">
-      <%= image_tag "kita_toys", class: "carousel-img" %>
+      <%= image_tag "#{@kindergarden.name.gsub(/\s+/, "")}02", class: "carousel-img" %>
     </div>
     <div class="carousel-item">
-      <%= image_tag "child", class: "carousel-img" %>
+      <%= image_tag "#{@kindergarden.name.gsub(/\s+/, "")}03", class: "carousel-img" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "#{@kindergarden.name.gsub(/\s+/, "")}04", class: "carousel-img" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag "#{@kindergarden.name.gsub(/\s+/, "")}05", class: "carousel-img" %>
     </div>
   </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
