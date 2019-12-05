@@ -17,27 +17,42 @@
         </div>
         <div class="">
           <div style="width: 100%; padding-right: 10px;">
-            <h1><%= @kindergarden.name.upcase %></h1>
+            <h1>
+              <%= @kindergarden.name.upcase %>
+              <% if @favourite.nil? %>
+                <div>
+                  <strong><%= link_to '<i class="fas fa-heart"></i>'.html_safe, kindergarden_favourites_path(@kindergarden),
+                    method: :post,
+                    data: {confirm: 'Adding to favourites' } %></strong>
+                </div>
+              <% end %>
+            </h1>
             <h4><%= @kindergarden.address %></h4>
             <div class="d-flex justify-content-start">
-             <h5>Languages</h5><p>  : <%= @kindergarden.language %></p>
+              <div class="d-flex flex-column">
+                <span>Languages</span>
+                <%= @kindergarden.language %>
+              </div>
+              <div class="d-flex flex-column">
+                <span>Capacity</span>
+                <%= @kindergarden.capacity %>
+              </div>
             </div>
+            <p><%= @kindergarden.description %></p>
             <div class="d-flex justify-content-start">
-              <h5>Capacity</h5><p>  : <%= @kindergarden.capacity %></p>
+              <span><%= @kindergarden.phone %></span>
+              <span><%= @kindergarden.email %></span>
             </div>
-              <p><%= @kindergarden.description %></p>
-              <h4><%= @kindergarden.phone %></h4>
-              <h4><%= @kindergarden.email %></h4>
           </div>
-          <!-- <div id="map" style="width: 40%"
+          <div id="map" style="width: 40%"
             data-markers="<%= @markers.to_json %>"
             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div> -->
+          </div>
         </div>
             <hr>
             <%= render "shared/kita_details", kindergarden: @kindergarden %>
             <hr>
-            <%= render "shared/kita_reviews", kindergarden: @kindergarden %>
+            <!-- <#%= render "shared/kita_reviews", kindergarden: @kindergarden %#> -->
             <%= render "shared/carousel", kindergarden: @kindergarden %>
        </div>
        <div class="kita-show-form w-50">
