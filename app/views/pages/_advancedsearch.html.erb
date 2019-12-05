@@ -13,7 +13,7 @@
               <div class="filter-input-field">
                 <%= label_tag 'opening_hours', 'Opening Hours' %>
                 <br>
-                <%= select_tag "opening_hours", options_for_select([['06:00', '06:00'], ['07:00', '07:00'], ['08:00', '08:00'], ['09:00', '09:00'], ['10:00', '10:00']]), include_blank: true, placeholder: '', class: "advanced_search" %>
+                <%= select_tag "opening_hours", options_for_select([['06:00', '06:00'], ['07:00', '07:00'], ['08:00', '08:00'], ['09:00', '09:00'], ['10:00', '10:00']]), include_blank: true, placeholder: '', class: "advanced_search" "js-example-placeholder-multiple js-states form-control" multiple="multiple"%>
               </div>
               <div  class="filter-input-field">
                 <%= label_tag 'closing_hours', 'Closing Hours' %>
