@@ -1,46 +1,5 @@
 <div class="container">
 
-  <div class="container" id="favourite-kindergardens">
-    <div class="section-title" style=" color: #f57170;">
-      <h4>My favourite kindergardens</h4>
-    </div>
-    <div class="row">
-      <% @favourites.each do |favourite| %>
-        <div class="col-4">
-          <%= render "shared/favourite_card", kindergarden: favourite.kindergarden %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="container" id="my-kids">
-    <div class="section-title" style=" margin-top: 15px; color: #f57170;">
-      <h4>My kids</h4>
-    </div>
-    <table style="width: 100%;">
-      <thead>
-        <tr>
-          <th class="table-dashboard" style="padding: 8px;">First name</th>
-          <th class="table-dashboard" style="padding: 8px;">Last name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% current_user.kids.each do |kid| %>
-        <tr>
-          <td class="table-dashboard" style="padding: 8px;">
-            <%= link_to kid.first_name, edit_kid_path(kid) %>
-          </td>
-          <td class="table-dashboard" style="padding: 8px;">
-            <%= kid.last_name %>
-          </td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-  <div class="container" style="margin-top: 10px; margin-bottom: 30px;">
-    <%= link_to "Add kid", new_kid_path(current_user), class:"btn btn-primary" %>
-  </div>
-
   <div class="container" id="all-kindergardens" style="margin-bottom: 30px;">
     <div class="section-title" style=" color: #f57170;">
       <h4>My applications</h4>
@@ -106,6 +65,47 @@
         <% end %>
       </tbody>
     </table>
+  </div>
+
+  <div class="container" id="favourite-kindergardens">
+    <div class="section-title" style=" color: #f57170;">
+      <h4>My favourite kindergardens</h4>
+    </div>
+    <div class="row">
+      <% @favourites.each do |favourite| %>
+        <div class="col-4">
+          <%= render "shared/favourite_card", kindergarden: favourite.kindergarden %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="container" id="my-kids">
+    <div class="section-title" style=" margin-top: 15px; color: #f57170;">
+      <h4>My kids</h4>
+    </div>
+    <table style="width: 100%;">
+      <thead>
+        <tr>
+          <th class="table-dashboard" style="padding: 8px;">First name</th>
+          <th class="table-dashboard" style="padding: 8px;">Last name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% current_user.kids.each do |kid| %>
+        <tr>
+          <td class="table-dashboard" style="padding: 8px;">
+            <%= link_to kid.first_name, edit_kid_path(kid) %>
+          </td>
+          <td class="table-dashboard" style="padding: 8px;">
+            <%= kid.last_name %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="container" style="margin-top: 10px; margin-bottom: 30px;">
+    <%= link_to "Add kid", new_kid_path(current_user), class:"btn btn-primary" %>
   </div>
 </div>
 <%= render "shared/footer", kindergarden: @kindergarden %>
