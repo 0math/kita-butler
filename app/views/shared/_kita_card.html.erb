@@ -13,7 +13,7 @@
     <h2><%=kindergarden.name%></h2>
     <i><%= kindergarden.language %></i>
     <address><p style="color: rgba(0,0,0,0.3)"><strong><%= kindergarden.address %></p></strong></address>
-    <p style="color: rgba(0,0,0,0.6);"><%= truncate(kindergarden.description, length: 160, separator: ' ') %></p>
+    <p style="color: rgba(0,0,0,0.6);"><%= truncate(kindergarden.description, length: 100, separator: ' ') %></p>
     <div class="d-flex justify-content-between">
       <%=link_to "More details", kindergarden_path(kindergarden.id), class: "btn btn-secondary" %>
       <% if kindergarden.is_available == true %>
