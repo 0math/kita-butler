@@ -2,27 +2,10 @@
   <div style="position: relative;">
     <h4><strong>Are there available spots?</strong></h4>
     <% if @kindergarden.is_available  %>
-      <div class="pulsating-circle-green"></div>
+      Yes
     <% else %>
-      <div class="pulsating-circle-red"></div>
+      No
     <% end %>
   </div>
-  <!-- <div>
-   <h4><strong>Languages</strong></h4>
-     <p><%= @kindergarden.language %></p>
-  </div>
-  <div>
-    <h4><strong>Capacity</strong></h4>
-     <p><%= @kindergarden.capacity %></p>
-  </div> -->
-<div>
-  <% if @favourite.nil? %>
-    <p>
-      <strong><%= link_to '<i class="fas fa-heart"></i>'.html_safe, kindergarden_favourites_path(@kindergarden),
-        method: :post,
-        data: {confirm: 'Adding to favourites' } %></strong>
-    </p>
-  <% end %>
- </div>
 </div>
 
