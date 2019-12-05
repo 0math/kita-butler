@@ -226,7 +226,9 @@
 	font-weight: 800;
 	font-size: 20px;
 }
-
+.navbar-nav {
+  align-items: center;
+}
 .navbar-application{
 	padding: 1.75rem 1rem;
 	font-family: inherit;
@@ -257,3 +259,5 @@
 		}
 	}
 }
+
+
