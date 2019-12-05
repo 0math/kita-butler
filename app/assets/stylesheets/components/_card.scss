@@ -16,7 +16,7 @@
   }
   .btn-primary {
     background-color: #f57170;
-    color: white;
+    color: white !important;
     font-size: 12px;
     width: 120px;
     margin-top: 16px;
@@ -48,7 +48,7 @@
   height: 100%;
   background: white;
   transition: all .3s ease-in-out;
-  transform: translateY(220px);
+  transform: translateY(240px);
 
   p {
     margin: 0 !important;
