@@ -1,7 +1,11 @@
 <div class="kita-show-details">
-  <div>
-    <h4><strong>Are there free available spots?</strong></h4>
-    <p><%= @kindergarden.is_available %></p>
+  <div style="position: relative;">
+    <h4><strong>Are there available spots?</strong></h4>
+    <% if @kindergarden.is_available  %>
+      <div class="pulsating-circle-green"></div>
+    <% else %>
+      <div class="pulsating-circle-red"></div>
+    <% end %>
   </div>
   <div>
    <h4><strong>Languages</strong></h4>
