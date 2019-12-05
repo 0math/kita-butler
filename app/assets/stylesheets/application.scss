@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap');
-
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -10,7 +9,12 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+
+
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 @import "components/table";
+
+
+
