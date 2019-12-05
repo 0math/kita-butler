@@ -80,4 +80,8 @@ document.querySelectorAll(".advanced_search").forEach((inputField) => {
   $(inputField).select2({width: "140px"});
 })
 
+$(".advanced_search").select2({
+    placeholder: "Select an option"
+});
+
 
