@@ -13,51 +13,68 @@
           <th class="table-dashboard" style="padding: 8px;">Status</th>
           <th class="table-dashboard" style="padding: 8px;">First contacted</th>
           <th class="table-dashboard" style="padding: 8px;">Last contacted</th>
+          <th class="table-dashboard" style="padding: 8px;">Actions</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="dashboard-table">
         <% @kids.each do |kid| %>
           <% if kid.reservations.exists? %>
             <tr>
-              <td class="table-dashboard" style="padding: 8px;">
+              <td class="table-dashboard">
                 <%= kid.first_name  %>
               </td>
-              <td class="table-dashboard" style="padding: 8px;">
+              <td class="table-dashboard">
                 <% kid.reservations.each do |reservation| %>
-                <%= link_to reservation.kindergarden.name, kindergarden_path(reservation.kindergarden) %>
+                  <div class="table-item">
+                    <%= link_to reservation.kindergarden.name, kindergarden_path(reservation.kindergarden) %>
+                  </div>
                 <% end %>
               </td>
-              <td class="table-dashboard" style="padding: 8px;">
+              <td class="table-dashboard">
                 <% kid.reservations.each do |reservation| %>
-                <%= reservation.kindergarden.phone %>
+                  <div class="table-item">
+                    <%= reservation.kindergarden.phone %>
+                  </div>
                 <% end %>
               </td>
-              <td class="table-dashboard" style="padding: 8px;">
+              <td class="table-dashboard">
                 <% kid.reservations.each do |reservation| %>
-                <%= reservation.status %>
+                  <div class="table-item">
+                    <%= reservation.status %>
+                  </div>
                 <% end %>
               </td>
-              <td class="table-dashboard" style="padding: 8px;">
+              <td class="table-dashboard">
                 <% kid.reservations.each do |reservation| %>
-                <%= I18n.l(reservation.created_at, format: :long, locale: :'en-US') %>
+                  <div class="table-item">
+                    <%= I18n.l(reservation.created_at, format: :short, locale: :'en') %>
+                  </div>
                 <% end %>
               </td>
-              <td class="table-dashboard" style="padding: 8px;">
+              <td class="table-dashboard">
                 <% kid.reservations.each do |reservation| %>
-                  <%= I18n.l(reservation.updated_at, format: :long, locale: :'en-US') %>
-                  <% if reservation.status  == 'Accepted' %>
-                    <%= link_to "Leave a review", kindergarden_path(reservation.kindergarden), class: "btn btn-primary" %>
-                  <% elsif reservation.status  == 'Pending' %>
-                    <%= link_to "Resend application", reservation_path(reservation),
-                    method: :patch,
-                    data: {confirm: 'You are about to contact this Kindergarden again. Would you like to proceed?' },
-                    class: "btn btn-primary" %>
-                  <% elsif reservation.status  == 'Declined' && kid.reservations.where(kindergarden: reservation.kindergarden, status: 'Pending').empty? %>
-                    <%= simple_form_for([reservation.kindergarden, reservation.dup]) do |f| %>
-                      <%= f.association :kid, collection: current_user.kids, as: :hidden %>
-                      <%= f.button :submit, class:"btn btn-primary" %>
+                  <div class="table-item">
+                    <%= I18n.l(reservation.updated_at, format: :short, locale: :'en') %>
+                  </div>
+                <% end %>
+              </td>
+              <td class="table-dashboard">
+                <% kid.reservations.each do |reservation| %>
+                  <div class="table-item">
+                    <% if reservation.status  == 'Accepted' %>
+                      <%= link_to "Leave a review", kindergarden_path(reservation.kindergarden), class: "btn btn-primary" %>
+                    <% elsif reservation.status  == 'Pending' %>
+                      <%= link_to "Resend application", reservation_path(reservation),
+                      method: :patch,
+                      data: {confirm: 'You are about to contact this Kindergarden again. Would you like to proceed?' },
+                      class: "btn btn-primary" %>
+                    <% elsif reservation.status  == 'Declined' && kid.reservations.where(kindergarden: reservation.kindergarden, status: 'Pending').empty? %>
+                      <%= simple_form_for([reservation.kindergarden, reservation.dup]) do |f| %>
+                        <%= f.association :kid, collection: current_user.kids, as: :hidden %>
+                        <%= f.button :submit, class:"btn btn-primary" %>
+                      <% end %>
                     <% end %>
-                  <% end %>
+                  </div>
                 <% end %>
               </td>
             </tr>
