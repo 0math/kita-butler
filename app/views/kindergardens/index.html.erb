@@ -14,17 +14,19 @@
         <div class="d-flex" style=" color: #f57170;">
           <h4>SEARCH</h4>
           <hr class="kindergardens-line">
-
         </div>
           <div class="index-search">
             <%= render 'pages/advancedsearch' %>
           </div>
-          <h1>Kitas in Berlin</h1>
+           <div class="d-flex search-results-title" style=" color: #f57170;">
+            <h4>KITAS IN <abbr>BERLIN</abbr></h4>
+            <hr class="kindergardens-line">
+          </div>
+
         <div>
             <div class="grid-container" >
               <% @kindergardens.each do |kindergarden| %>
                 <%= render "shared/kita_card", kindergarden: kindergarden %>
-
               <% end %>
             </div>
         </div>

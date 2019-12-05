@@ -31,7 +31,10 @@
     width: 120px;
     margin-top: 16px;
   }
+}
 
+.card-index {
+  height: 360px;
 }
 
 .card-img {
@@ -48,10 +51,15 @@
   height: 100%;
   background: white;
   transition: all .3s ease-in-out;
-  transform: translateY(220px);
+  transform: translateY(240px);
 
   p {
     margin: 0 !important;
+  }
+
+  .btn {
+    margin-top: 32px;
+    width: 48% !important;
   }
 }
 
