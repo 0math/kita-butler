@@ -63,6 +63,10 @@ h3 {
   grid-gap: 10px;
 }
 
+.filter-input-field {
+  margin-right: 5px;
+}
+
 .index-search {
   form.mt-md-5 {
     margin-top: 1rem !important;
@@ -92,7 +96,7 @@ h3 {
       background: transparent;
       border: none;
       position: absolute;
-      top: 13%;
+      top: 28px;
       right: 0;
       transform: translateY(-50%);
       width: 55px;

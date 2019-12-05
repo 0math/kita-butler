@@ -10,30 +10,36 @@
             %>
             <br>
             <br>
-              <div class="d-flex"  id="advanced_search" >
-                <div>
+              <div class="d-flex" >
+                <div class="filter-input-field">
                   <%= label_tag 'opening_hours', 'Opening Hours' %>
-                  <%= select_tag "opening_hours", options_for_select([['06:00', '06:00'], ['07:00', '07:00'], ['08:00', '08:00'], ['09:00', '09:00'], ['10:00', '10:00']]), include_blank: true, placeholder: '' %>
+                  <br>
+                  <%= select_tag "opening_hours", options_for_select([['06:00', '06:00'], ['07:00', '07:00'], ['08:00', '08:00'], ['09:00', '09:00'], ['10:00', '10:00']]), include_blank: true, placeholder: '', class: "advanced_search" %>
                 </div>
-                <div >
+                <div  class="filter-input-field">
                   <%= label_tag 'closing_hours', 'Closing Hours' %>
-                  <%= select_tag "closing_hours", options_for_select([['16:00', '16:00'], ['17:00', '17:00'], ['18:00', '18:00'], ['19:00', '19:00'], ['20:00', '20:00']]), include_blank: true, placeholder: '' %>
+                  <br>
+                  <%= select_tag "closing_hours", options_for_select([['16:00', '16:00'], ['17:00', '17:00'], ['18:00', '18:00'], ['19:00', '19:00'], ['20:00', '20:00']]), include_blank: true, placeholder: '', class: "advanced_search" %>
                 </div>
-                <div >
+                <div  class="filter-input-field">
                   <%= label_tag 'size', 'Size' %>
-                  <%= select_tag "size", options_for_select([['less than 50', 'less than 50'], ['more than 50', 'more than 50']]), include_blank: true, placeholder: '' %>
+                  <br>
+                  <%= select_tag "size", options_for_select([['less than 50', 'less than 50'], ['more than 50', 'more than 50']]), include_blank: true, placeholder: '', class: "advanced_search" %>
                 </div>
-                <div >
+                <div  class="filter-input-field">
                   <%= label_tag 'age_structure', 'Age Structure' %>
-                  <%= select_tag "age_structure", options_for_select([['Mixed ages', 'Mixed ages'], ['Old homogenous', 'Old homogenous'], ['Nest group', 'Nest group']]), include_blank: true, placeholder: '' %>
+                  <br>
+                  <%= select_tag "age_structure", options_for_select([['Mixed ages', 'Mixed ages'], ['Old homogenous', 'Old homogenous'], ['Nest group', 'Nest group']]), include_blank: true, placeholder: '', class: "advanced_search" %>
                 </div>
-                <div >
+                <div  class="filter-input-field">
                   <%= label_tag 'edu_system', 'Edu. System' %>
-                  <%= select_tag "edu_system", options_for_select([['Emmy Picker', 'Emmy Picker'], ['Freinet', 'Freinet'], ['Fröbel', 'Fröbel'], ['Montessory', 'Montessory'], ['Open Work', 'Open Work'], ['Reggio', 'Reggio'], ['Situational', 'Situational'], ['Waldorf', 'Waldorf']]), include_blank: true, placeholder: '' %>
+                  <br>
+                  <%= select_tag "edu_system", options_for_select([['Emmy Picker', 'Emmy Picker'], ['Freinet', 'Freinet'], ['Fröbel', 'Fröbel'], ['Montessory', 'Montessory'], ['Open Work', 'Open Work'], ['Reggio', 'Reggio'], ['Situational', 'Situational'], ['Waldorf', 'Waldorf']]), include_blank: true, placeholder: '', class: "advanced_search" %>
                 </div>
-                <div >
+                <div class="filter-input-field" >
                   <%= label_tag 'aesthetic_edu', 'Aesthetic Edu.' %>
-                  <%= select_tag "aesthetic_edu", options_for_select([['Health', 'Health'], ['Disabilitiy Integr.', 'Disabilitiy Integr.'], ['Intercultural Edu.', 'Intercultural Edu.'], ['Body and Movement', 'Body and Movement'], ['Nature/ENvireonm.', 'Natural and Environment'], ['Scientific exp.', 'Scientific experience'], ['Religious Edu.', 'Religious Education'], ['Theater Education', 'Theater Education']]), include_blank: true, placeholder: '' %>
+                  <br>
+                  <%= select_tag "aesthetic_edu", options_for_select([['Health', 'Health'], ['Disabilitiy Integr.', 'Disabilitiy Integr.'], ['Intercultural Edu.', 'Intercultural Edu.'], ['Body and Movement', 'Body and Movement'], ['Nature/ENvireonm.', 'Natural and Environment'], ['Scientific exp.', 'Scientific experience'], ['Religious Edu.', 'Religious Education'], ['Theater Education', 'Theater Education']]), include_blank: true, placeholder: '', class: "advanced_search" %>
                 </div>
               </div>
             <button ><span class="ion-ios-search"><i class="fas fa-search"></i></span></button>
