@@ -23,7 +23,7 @@
               <%= link_to "Apply", new_kindergarden_reservation_path(kindergarden), class: "btn btn-primary" %>
             <% end %>
           <% else %>
-            <%= link_to "Add your kid first", new_kid_path %>
+            <%= link_to "Add kid", new_kid_path, class: "btn btn-primary" %>
           <% end %>
         <% else %>
           <%=link_to "Apply", new_kindergarden_reservation_path(kindergarden),  class: "btn btn-primary" %>
