@@ -36,10 +36,11 @@ class KindergardensController < ApplicationController
       @declined_reservations = current_user.reservations.where(kindergarden_id: @kindergarden.id, status: 'Declined')
       @favourite = current_user.favourites.where(kindergarden_id: @kindergarden.id).first
       @review = Review.new
+      @kids_with_no_reservation = current_user.kids.reject { |kid| Reservation.exists?(kid_id: kid.id, kindergarden_id: @kindergarden.id) }
+      # @reservation = Reservation.where(kid_id: current_user.kids. ?, kindergarden_id: @kindergarden.id)
     end
-    @kids_with_no_reservation = current_user.kids.reject { |kid| Reservation.exists?(kid_id: kid.id, kindergarden_id: @kindergarden.id) }
     @kid = Kid.new
-    @reservation = Reservation.new
+
     @markers = [{ lat: @kindergarden.latitude, lng: @kindergarden.longitude, infoWindow: render_to_string(partial: "info_window", locals: { kindergarden: @kindergarden }) }]
   end
 

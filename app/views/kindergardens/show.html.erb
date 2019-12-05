@@ -99,12 +99,15 @@
               <% end %>
             </div>
           <% end %>
-          <% if @kids_with_no_reservation.empty? %>
-          <h4 style=" color: #f57170;">All of your kids have already applied to this Kindergarden</h4>
-            <% end %>
+          <% if @kids_with_no_reservation.empty? && user_signed_in? && current_user.kids.exists? %>
+              <h4 style=" color: #f57170;">All of your kids have already applied to this Kindergarden</h4>
+          <% end %>
          <% end %>
         </div>
         <div>
+          <% unless @kindergarden.reviews.empty?  %>
+            <h4 style="font-weight: lighter; letter-spacing: 1px;">Reviews:</h4>
+          <% end %>
           <ul class="list-group">
            <% @kindergarden.reviews.each do |review| %>
              <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -119,29 +122,32 @@
              </li>
             <% end %>
           </ul>
-        <% if @my_reservation.empty? && @kindergarden.is_available %>
-          <h4 style="font-weight: lighter; letter-spacing: 1px;">You will be able to leave a review once the kindergarden has accepted your application</h4>
-        <% end %>
-        <% if @kindergarden.reviews.empty? && !@my_reservation.empty? %>
-            <h3>Be the first to leave a review</h3>
-        <% end %>
-        <% unless @kindergarden.is_available %>
-          <h4 style="font-weight: lighter; letter-spacing: 1px;">This Kindergarden is already full of happy toddlers. Please, check again later.</h4>
-        <% end %>
-          <% if @my_reservation.present? %>
-              <div class="d-flex" style=" color: #f57170;">
-                <h4>REVIEW</h4>
-                <hr class="kindergardens-line">
-              </div>
-              <div class="form-pink-bg">
-              <%= simple_form_for [@my_reservation, @review] do |f| %>
-               <%= f.input :rating, collection: 1..5 %>
-               <%= f.input :content %>
-               <%= f.submit class:"btn btn-white w-100"%>
-             <% end %>
-             </div>
+        <% if user_signed_in? %>
+          <% if @my_reservation.empty? && @kindergarden.is_available %>
+            <h4 style="font-weight: lighter; letter-spacing: 1px;">You will be able to leave a review once the kindergarden has accepted your application</h4>
           <% end %>
-         <div><%=link_to "Back to results", session[:search_results], class:"btn btn-primary" %></div>
+          <% if @kindergarden.reviews.empty? && !@my_reservation.empty? %>
+              <h3>Be the first to leave a review</h3>
+          <% end %>
+          <% unless @kindergarden.is_available %>
+            <h4 style="font-weight: lighter; letter-spacing: 1px;">This Kindergarden is already full of happy toddlers. Please, check again later.</h4>
+          <% end %>
+
+            <% if @my_reservation.present? %>
+                <div class="d-flex" style=" color: #f57170;">
+                  <h4>REVIEW</h4>
+                  <hr class="kindergardens-line">
+                </div>
+                <div class="form-pink-bg">
+                <%= simple_form_for [@my_reservation.first, @review] do |f| %>
+                 <%= f.input :rating, collection: 1..5 %>
+                 <%= f.input :content %>
+                 <%= f.submit class:"btn btn-white w-100"%>
+               <% end %>
+               </div>
+            <% end %>
+          <% end %>
+         <div><%=link_to "Back to results", session[:search_results], class:"btn btn-primary", style:"margin-top: 2%;" %></div>
         </div>
      </div>
     </div>
