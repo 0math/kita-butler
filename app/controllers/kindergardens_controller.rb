@@ -40,7 +40,7 @@ class KindergardensController < ApplicationController
       # @reservation = Reservation.where(kid_id: current_user.kids. ?, kindergarden_id: @kindergarden.id)
     end
     @kid = Kid.new
-
+    @reservation = Reservation.new
     @markers = [{ lat: @kindergarden.latitude, lng: @kindergarden.longitude, infoWindow: render_to_string(partial: "info_window", locals: { kindergarden: @kindergarden }) }]
   end
 

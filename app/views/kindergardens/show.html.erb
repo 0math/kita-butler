@@ -66,7 +66,7 @@
           <h4 style="font-weight: lighter;">Please select one of your kids and we'll guide you through the application process for this Kindergarden</h4>
            <div class="form-pink-bg">
             <%= simple_form_for([@kindergarden, @reservation]) do |f| %>
-            <%= f.association :kid, collection: current_user.kids, label_method: :first_name %>
+            <%= f.association :kid, collection: @kids_with_no_reservation, label_method: :first_name %>
             <%= f.button :submit, class:"btn btn-white w-100" %>
           <% end %>
           </div>
