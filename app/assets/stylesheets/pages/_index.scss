@@ -1,7 +1,9 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "kita_show";
+@import "misc";
 @import "dashboard";
+
 
 body {
 	font-size: 16px;
@@ -46,7 +48,6 @@ h3 {
 
 #wrapper {
   display: flex;
-  padding: 40px;
 }
 
 .kita-index-flex-right {
@@ -54,13 +55,59 @@ h3 {
 }
 
 .kita-index-flex-left {
+  padding: 0 30px 30px;
   width: 60%;
+
+  .ion-ios-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .fas {
+      font-size: 20px;
+    }
+  }
+
+  .filters {
+    margin: 20px 0 50px;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 16px;
+
+    label {
+      margin-bottom: 0;
+      font-size: 12px;
+    }
+
+    .select2-container {
+      width: 100% !important;
+    }
+  }
+
+
+  .search-results-title {
+    margin-bottom: 30px;
+
+    h4 {
+      width: 35%;
+      color: #f57170;
+
+      abbr {
+        color: black;
+      }
+    }
+
+    hr {
+      width: 65%;
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+  }
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  padding: 10px;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
 }
 

@@ -31,7 +31,10 @@
     width: 120px;
     margin-top: 16px;
   }
+}
 
+.card-index {
+  height: 360px;
 }
 
 .card-img {
@@ -52,6 +55,11 @@
 
   p {
     margin: 0 !important;
+  }
+
+  .btn {
+    margin-top: 32px;
+    width: 48% !important;
   }
 }
 
@@ -78,4 +86,8 @@
 }
 .card-link:hover {
   opacity: 0.1;
+}
+
+.review-cards {
+  border:solid;
 }

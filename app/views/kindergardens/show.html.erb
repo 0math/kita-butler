@@ -15,18 +15,24 @@
           <h4>SELECTION</h4>
           <hr class="kindergardens-line">
         </div>
-        <div class="d-flex justify-content-between">
-          <div style="width: 60%; padding-right: 10px;">
+        <div class="">
+          <div style="width: 100%; padding-right: 10px;">
             <h1><%= @kindergarden.name.upcase %></h1>
             <h4><%= @kindergarden.address %></h4>
+            <div class="d-flex justify-content-start">
+             <h5>Languages</h5><p>  : <%= @kindergarden.language %></p>
+            </div>
+            <div class="d-flex justify-content-start">
+              <h5>Capacity</h5><p>  : <%= @kindergarden.capacity %></p>
+            </div>
               <p><%= @kindergarden.description %></p>
               <h4><%= @kindergarden.phone %></h4>
               <h4><%= @kindergarden.email %></h4>
           </div>
-          <div id="map" style="width: 40%"
+          <!-- <div id="map" style="width: 40%"
             data-markers="<%= @markers.to_json %>"
-            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-          ></div>
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div> -->
         </div>
             <hr>
             <%= render "shared/kita_details", kindergarden: @kindergarden %>
@@ -105,8 +111,13 @@
           <% end %>
          <div><%=link_to "Back to results", session[:search_results], class:"btn btn-primary" %></div>
         </div>
-       </div>
+
      </div>
+    </div>
+    <div id="map map_show"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
     <%= render "shared/footer", kindergarden: @kindergarden %>
   </body>
 </html>
