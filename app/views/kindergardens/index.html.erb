@@ -1,23 +1,36 @@
-<div class="container-fluid">
-  <%= render 'pages/advancedsearch' %>
-  <h1> Available KiTas </h1>
-  <div class="row">
-    <div class="col-8">
+<html>
+  <head>
+    <title>Kita Butler</title>
+    <meta name="description" content="Kita Butler is the best service for finding kindergarden for your kids. Fast and effecietnt!">
+    <meta charset="utf-8">
+    <meta property="og:title" content="Kita Butler - best for finding kindergardens">
+    <meta property="og:image" content="kita1.jpeg">
+    <meta property="og:description" content="Kita Butler is the best service for finding kindergarden for your kids. Fast and effecietnt!">
+    <meta property="og:site_name" content="Kita Butler">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <%= render 'pages/advancedsearch' %>
+      <h1> Available KiTas </h1>
       <div class="row">
-        <% @kindergardens.each do |kindergarden| %>
-          <div class="col-4">
-            <%= render "shared/kita_card", kindergarden: kindergarden %>
+        <div class="col-8">
+          <div class="row">
+            <% @kindergardens.each do |kindergarden| %>
+              <div class="col-4">
+                <%= render "shared/kita_card", kindergarden: kindergarden %>
+              </div>
+            <% end %>
           </div>
-        <% end %>
+        </div>
+        <div class="col-4">
+          <div
+            id="map" style="height: 100vh"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="col-4">
-      <div
-        id="map" style="height: 100vh"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-    </div>
-  </div>
- </div>
-<%= render "shared/footer", kindergarden: @kindergarden %>
+     </div>
+    <%= render "shared/footer", kindergarden: @kindergarden %>
+  </body>
+</html>
