@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="form-pink-bg">
+  <div class="form-pink-bg form-reservations-new">
     <% if current_user.kids.exists? %>
      <p>Please select one of your kids and we'll guide you through the application process for this Kindergarden</p>
       <%= simple_form_for([@kindergarden, @reservation]) do |f| %>

@@ -3,7 +3,7 @@
   <% @declined_reservations = current_user.reservations.where(kindergarden: kindergarden, status: 'Declined') %>
 <% end %>
 
-<div class="card">
+<div class="card <%= 'card-index' if controller_name == 'kindergardens' && action_name == 'index' %>">
   <% if kindergarden.photo.present? %>
     <div class="card-img" style="background-image: url('<%= cl_image_path kindergarden.photo, height: 300, width: 400, crop: :fill %>')"></div>
   <% else %>

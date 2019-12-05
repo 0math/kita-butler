@@ -8,6 +8,8 @@ class KidsController < ApplicationController
 
   def create
     @kid = current_user.kids.new(kid_params)
+    @kid.primary_language = @kid.primary_language.strip
+    @kid.secondary_language = @kid.secondary_language.strip
     authorize @kid
     if @kid.save
       flash[:notice] = 'A new kid has been added to your profile successfully!'

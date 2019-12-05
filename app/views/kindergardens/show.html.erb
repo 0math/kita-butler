@@ -15,18 +15,24 @@
           <h4>SELECTION</h4>
           <hr class="kindergardens-line">
         </div>
-        <div class="d-flex justify-content-between">
-          <div style="width: 60%; padding-right: 10px;">
+        <div class="">
+          <div style="width: 100%; padding-right: 10px;">
             <h1><%= @kindergarden.name.upcase %></h1>
             <h4><%= @kindergarden.address %></h4>
+            <div class="d-flex justify-content-start">
+             <h5>Languages</h5><p>  : <%= @kindergarden.language %></p>
+            </div>
+            <div class="d-flex justify-content-start">
+              <h5>Capacity</h5><p>  : <%= @kindergarden.capacity %></p>
+            </div>
               <p><%= @kindergarden.description %></p>
               <h4><%= @kindergarden.phone %></h4>
               <h4><%= @kindergarden.email %></h4>
           </div>
-          <div id="map" style="width: 40%"
+          <!-- <div id="map" style="width: 40%"
             data-markers="<%= @markers.to_json %>"
-            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-          ></div>
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div> -->
         </div>
             <hr>
             <%= render "shared/kita_details", kindergarden: @kindergarden %>
@@ -40,8 +46,8 @@
           <hr class="kindergardens-line">
         </div>
         <div>
-         <% if user_signed_in? && @kindergarden.is_available == true %>
-          <% if current_user.kids.exists? && !@has_kid_in_kita %>
+         <% if user_signed_in? && @kindergarden.is_available %>
+          <% if current_user.kids.exists? && !@kids_with_no_reservation.empty? %>
           <h4 style="font-weight: lighter;">Please select one of your kids and we'll guide you through the application process for this Kindergarden</h4>
            <div class="form-pink-bg">
             <%= simple_form_for([@kindergarden, @reservation]) do |f| %>
@@ -49,9 +55,7 @@
             <%= f.button :submit, class:"btn btn-white w-100" %>
           <% end %>
           </div>
-          <% elsif @has_kid_in_kita %>
-            <h4 style=" color: #f57170;">You cannot apply with the same kid</h4>
-          <% else %>
+          <% elsif @current_user.kids.empty? %>
           <div class="form-pink-bg">
           <%= simple_form_for(@kid) do |f| %>
             <%= f.error_notification %>
@@ -80,6 +84,9 @@
               <% end %>
             </div>
           <% end %>
+          <% if @kids_with_no_reservation.empty? %>
+          <h4 style=" color: #f57170;">All of your kids have already applied to this Kindergarden</h4>
+            <% end %>
          <% end %>
         </div>
         <div>
@@ -97,12 +104,14 @@
              </li>
             <% end %>
           </ul>
-        <% if @my_reservation.nil? %>
-          <h4 style="font-weight: lighter; letter-spacing: 1px;">You will be able to leave a review once you have an accepted reservation in this kindergarden</h4>
-        <% else %>
-          <% if @kindergarden.reviews.empty? %>
+        <% if @my_reservation.empty? && @kindergarden.is_available %>
+          <h4 style="font-weight: lighter; letter-spacing: 1px;">You will be able to leave a review once the kindergarden has accepted your application</h4>
+        <% end %>
+        <% if @kindergarden.reviews.empty? && !@my_reservation.empty? %>
             <h3>Be the first to leave a review</h3>
-          <% end %>
+        <% end %>
+        <% unless @kindergarden.is_available %>
+          <h4 style="font-weight: lighter; letter-spacing: 1px;">This Kindergarden is already full of happy toddlers. Please, check again later.</h4>
         <% end %>
           <% if @my_reservation.present? %>
               <div class="d-flex" style=" color: #f57170;">
@@ -119,8 +128,12 @@
           <% end %>
          <div><%=link_to "Back to results", session[:search_results], class:"btn btn-primary" %></div>
         </div>
-       </div>
      </div>
+    </div>
+    <div id="map map_show"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
     <%= render "shared/footer", kindergarden: @kindergarden %>
   </body>
 </html>
