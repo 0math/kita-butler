@@ -16,15 +16,26 @@
   color: white;
   padding: 16px;
   margin-bottom: 40px;
+  margin: 0 auto;
+  max-width: 620px;
+
+  label {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+
+  }
 }
 .btn-white {
-  background-color: white;
-  color: $primary;
+  background-color: #f5716f;
+  color: #ffffff;
+  border-color: white;
+  font-weight: 600;
 }
 .btn-white:hover {
-  background-color: $primary;
-  color: white;
-  border: white 1px solid;
+  background-color: white;
+  color: #f5716f;
+  border: white 1px #f5716f;
 }
 
 .kita-show-info, .kita-show-form {
@@ -32,9 +43,54 @@
 }
 
 .kita-show-info h1 {
+  display: flex;
+  margin-top: 16px;
   letter-spacing: 1px;
   font-size: 2em;
+
+  strong {
+    margin-left: 16px;
+  }
 }
+
+.kita-show-info h4 {
+  margin-bottom: 16px;
+  font-size: 21px;
+
+  .fas {
+    margin-right: 8px;
+    color: $primary;
+  }
+}
+
+.kita-show-info .kita-info {
+  color: black;
+
+  span {
+    color: $primary;
+  }
+}
+
+.kita-info {
+  margin-bottom: 21px;
+
+  .kita-info-details:first-of-type {
+    margin-right: 60px;
+  }
+}
+
+.kita-contact {
+  margin-bottom: 21px;
+
+  span:first-of-type {
+    margin-right: 46px;
+  }
+
+  span .fas {
+    color: $primary;
+  }
+}
+
 
 .kita-show-details {
   display: flex;
@@ -42,6 +98,13 @@
   h4 {
     font-size: 18px;
     color: $primary
+  }
+}
+
+.kita-show-form {
+  .form-pink-bg {
+    margin-top: 30px;
+    margin-bottom: 21px;
   }
 }
 
